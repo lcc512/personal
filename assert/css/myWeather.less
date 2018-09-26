@@ -40,6 +40,7 @@ body {
     padding-left: 5px;
   }
 
+  //弹出的详细窗口
   .detailBtn{
     text-align: center;
       a {
@@ -101,6 +102,46 @@ body {
         color: @mainColor;
       }
     }
+  }
+
+  .addNewCity{
+    width: 230px;
+    //height: 100px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    overflow: auto;
+
+    /*以下让元素上下左右居中*/
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: none;
+    z-index: 999;
+    padding: 20px;
+
+    display: none;
+
+    a {
+      display: block;
+      text-decoration: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 100%;
+      border: 1px solid #ccc;
+      margin: 0 auto;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      color: #333333;
+      line-height: 44px;
+      transition: 0.3s all;
+    }
+    input{
+      width: 100%;
+      height: 36px;
+      margin-bottom: 10px;
+    }
+
   }
 }
 

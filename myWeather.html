@@ -26,7 +26,7 @@
 
   <!--详细按钮-->
   <div class="detailBtn">
-    <a id="doit" href="javascript:void(0);">详细</a>
+    <a id="doit" href="javascript:void(0);" style="margin-top: 5px;">详细</a>
   </div>
   <p class="updateLoc">----</p>
 
@@ -57,9 +57,15 @@
 
   <!--临时切换城市按钮-->
   <div class="addCity">
-    <a href="javascript:void(0);">天津</a>
-    <a href="javascript:void(0);">阳原</a>
-    <a href="javascript:void(0);">佛山</a>
+    <a class="cityItem" href="javascript:void(0);">天津</a>
+    <a class="cityItem" href="javascript:void(0);">阳原</a>
+    <a class="cityItem" href="javascript:void(0);">佛山</a>
+    <a class="cityAddBtn" href="javascript:void(0);" style="font-size: 24px; line-height: 42px">+</a>
+  </div>
+  <!--新增城市编辑窗口-->
+  <div class="addNewCity">
+    <input type="text" placeholder="输入城市汉字">
+    <a href="javascript:void(0);">确定</a>
   </div>
 
 
@@ -103,6 +109,8 @@
 
     // 渲染列表方法
     function setWeatherList(data) {
+
+      var getStatus
 
       // 刷新前--清空，初始化
       //小时别
@@ -192,6 +200,29 @@
     }
 
 
+    // 点击按钮新增城市
+    var flag=true
+    $('.cityAddBtn').click(function () {
+
+      if(flag){
+        $('.addNewCity').show(500)
+        $('.addNewCity>a').click(function () {
+
+          var cityName=$('.addNewCity>input').val()
+
+          $('.addCity').prepend('<a class="cityItem" href="javascript:void(0);">'+cityName+'</a>')
+
+          $('.addNewCity').hide()
+
+        })
+      }
+      else {
+        alert('只允许添加一个城市')
+      }
+      flag=false
+
+    })
+
 
 
 
@@ -227,15 +258,17 @@
     }
 
     // 默认加载第一项地区
-    getWeatherData($('.addCity a').eq(0))
+    getWeatherData($('.addCity>.cityItem').eq(0))
 
     // 切换按钮加载
-    $('.addCity').delegate('a', 'click', function () {
+    $('.addCity').delegate('.cityItem', 'click', function () {
 
       getWeatherData($(this))
     })
 
   }())
+
+
 
   // 蒙版
   ;(function () {
