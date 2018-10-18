@@ -1,0 +1,154 @@
+@mainColor: #e11511;
+@basePx: 44px;
+@fontSizeTitle:18px;
+@fontSizeContent:14px;
+
+//清空默认样式
+/* 清除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td { /* table elements 表格元素 */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+.clearfix::before, .clearfix:after {
+  content: ""; /*设置内容为空*/
+  height: 0; /*高度为0*/
+  line-height: 0; /*行高为0*/
+  display: block; /*将文本转为块级元素*/
+  visibility: hidden; /*将元素隐藏*/
+  clear: both /*清除浮动*/
+}
+
+.clearfix {
+  zoom: 1; /*兼容IE*/
+}
+
+body {
+  font-family: "Microsoft YaHei UI", sans-serif;
+  width: 100%;
+  height: 100%;
+}
+
+//标题栏
+.newsTitle {
+  width: 100%;
+  height: @basePx;
+  background-color: @mainColor;
+  //margin-bottom: @basePx/2;
+  h2 {
+    color: white;
+    text-align: center;
+    line-height: @basePx;
+    font-weight: lighter;
+  }
+}
+
+//新闻分类标签
+.newsCatagory {
+  //height: @basePx;
+  width: 100%;
+  padding-bottom: 5px;
+  background-color: white;
+  //background-color: #5bc0de;
+  box-shadow: 0px 5px 20px #ccc;
+
+  //向下移动浮动
+  &.fudong{
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+
+
+  li {
+    width: 20%;
+    float: left;
+    text-align: center;
+    //padding: 0 5px;
+
+    &.active {
+      a {
+        border-bottom: 2px solid @mainColor;
+      }
+    }
+
+    a {
+      display: block;
+      width: 60%;
+      margin: 0 auto;
+      height: 100%;
+      line-height: @basePx;
+      text-decoration: none;
+      color: #333333;
+      border-bottom: 2px solid white;
+
+    }
+
+  }
+}
+
+//新闻列表
+.newsList {
+  width: 100%;
+  height: 400px;
+  li {
+    //height: @basePx*2;
+    padding: 5px @basePx/2;
+    //background-color: yellow;
+
+    .listIcon {
+      height: 100%;
+      width: 30%;
+      padding-top: 30px;
+      //background-color: yellow;
+      float: left;
+      a{
+        width: 100%;
+        height: 100%;
+        display: block;
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+
+    }
+    .listMain {
+      width: 70%;
+      float: left;
+      //background-color: #5bc0de;
+      //padding-top: 30px;
+      margin-top: 30px;
+      a{
+        color: #333333;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      .mainTitle {
+        font-size: @fontSizeTitle;
+        padding-left: 10px;
+        padding-bottom: 5px;
+        //background-color: yellow;
+      }
+      .mainContent {
+        font-size: @fontSizeContent;
+        padding-left: 10px;
+        color: #9d9d9d;
+      }
+    }
+  }
+
+}
+
+//底部

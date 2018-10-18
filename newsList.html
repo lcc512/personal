@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--<link rel="stylesheet" href="assert/plugins/css/bootstrap.min.css">-->
+  <link rel="stylesheet" href="assert/css/newsList.css">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_832418_iig9uckp5ta.css">
+
+  <title>主页</title>
+
+</head>
+<body>
+
+<!--标题栏-->
+<div class="newsTitle">
+  <h2 id="doit">新闻客户端</h2>
+</div>
+<!--新闻分类标签-->
+<ul class="newsCatagory clearfix">
+  <li class="tech"><a href="javascript:void(0);">科技</a></li>
+  <li class="auto"><a href="javascript:void(0);">汽车</a></li>
+  <li class="money"><a href="javascript:void(0);">金融</a></li>
+  <li class="sports"><a href="javascript:void(0);">运动</a></li>
+  <li class="dy"><a href="javascript:void(0);">电影</a></li>
+</ul>
+<!--新闻列表-->
+<!--一个单元 左边图标，左边上面标题，下面内容-->
+<ul class="newsList">
+  <!--<li class="clearfix">-->
+    <!--<div class="listIcon">-->
+      <!--<img src="http://cms-bucket.nosdn.127.net/2018/10/17/c920d0785a3a4cc0beef184e89235e86.png" alt="titleImg">-->
+    <!--</div>-->
+    <!--<div class="listMain">-->
+      <!--<div class="mainTitle">曾有机会与马斯克合作造火箭，贝佐斯:他是个好人</div>-->
+      <!--<div class="mainContent">出品|网易科学人栏目组晗冰微信|公号ID：WYKXR163世</div>-->
+    <!--</div>-->
+  <!--</li>-->
+
+</ul>
+<!--底部-->
+
+<script src="assert/plugins/js/jquery-1.12.4.min.js"></script>
+<script>
+
+  // https://www.apiopen.top/journalismApi
+
+  function renderElement(parenetEle,data) {
+
+    parenetEle.empty()
+    var liEle=''
+    
+    for (var i=0 ;i<data.length;i++){
+
+      var imgUrl
+
+      if(data[i]['picInfo'][0]==undefined){
+
+        imgUrl='assert/images/moren.jpg'
+      }else {
+        imgUrl=data[i]['picInfo'][0]['url']
+      }
+
+      // console.log(data[i]['picInfo'][0]['url'])
+
+
+
+
+      liEle+='<li class="clearfix">\n' +
+        '    <div class="listIcon">\n' +
+        '      <a href="'+data[i]['link']+'"><img src="'+imgUrl+'" alt="titleImg"></a>\n' +
+        '    </div>\n' +
+        '    <div class="listMain">\n' +
+        '      <a href="'+data[i]['link']+'"><div class="mainTitle">'+data[i]['title']+'</div></a>\n' +
+        '      <div class="mainContent">'+data[i]['digest']+'...</div>\n' +
+        '    </div>\n' +
+        '  </li>'
+    }
+
+    parenetEle.append($(liEle))
+
+  }
+
+  function doingAjax(category) {
+
+    $.ajax({
+      url: 'https://www.apiopen.top/journalismApi',
+      type: 'get',
+      dataType: 'json',
+      success: function (data) {
+
+        // console.log(dataT)
+        renderElement($('.newsList'),data['data'][category])
+      },
+      error: function (data) {
+        console.log('error')
+        console.log(data)
+      }
+    })
+  }
+
+  function exchangeClass(ele){
+
+    ele.siblings().removeClass('active')
+    ele.addClass('active')
+
+  }
+
+  $('.newsCatagory').delegate('li','click',function () {
+
+    exchangeClass($(this))
+    var category=$(this).attr('class').replace(/active|\s/g,'')
+    doingAjax(category)
+    document.cookie=category;
+
+  })
+
+  // 默认加载
+  function moren() {
+    if(document.cookie==''){
+      exchangeClass($('.tech'))
+      doingAjax('tech')
+    }
+    else {
+      exchangeClass($('.'+document.cookie))
+      doingAjax(document.cookie)
+      console.log(document.cookie)
+    }
+  }
+
+  moren()
+
+  // 分类标签浮动
+  ;(function () {
+
+    $(window).scroll(function () {
+      if ($(document).scrollTop() > 80) {
+        $('.newsCatagory').addClass('fudong')
+      }
+      else {
+        $('.newsCatagory').removeClass('fudong')
+      }
+    });
+
+
+  }())
+
+
+</script>
+
+</body>
+</html>
