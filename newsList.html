@@ -22,21 +22,21 @@
 <ul class="newsCatagory clearfix">
   <li class="tech"><a href="javascript:void(0);">科技</a></li>
   <li class="auto"><a href="javascript:void(0);">汽车</a></li>
-  <li class="money"><a href="javascript:void(0);">金融</a></li>
+  <li class="money"><a href="javascript:void(0);">财经</a></li>
   <li class="sports"><a href="javascript:void(0);">运动</a></li>
-  <li class="dy"><a href="javascript:void(0);">电影</a></li>
+  <li class="ent"><a href="javascript:void(0);">娱乐</a></li>
 </ul>
 <!--新闻列表-->
 <!--一个单元 左边图标，左边上面标题，下面内容-->
 <ul class="newsList">
   <!--<li class="clearfix">-->
-    <!--<div class="listIcon">-->
-      <!--<img src="http://cms-bucket.nosdn.127.net/2018/10/17/c920d0785a3a4cc0beef184e89235e86.png" alt="titleImg">-->
-    <!--</div>-->
-    <!--<div class="listMain">-->
-      <!--<div class="mainTitle">曾有机会与马斯克合作造火箭，贝佐斯:他是个好人</div>-->
-      <!--<div class="mainContent">出品|网易科学人栏目组晗冰微信|公号ID：WYKXR163世</div>-->
-    <!--</div>-->
+  <!--<div class="listIcon">-->
+  <!--<img src="http://cms-bucket.nosdn.127.net/2018/10/17/c920d0785a3a4cc0beef184e89235e86.png" alt="titleImg">-->
+  <!--</div>-->
+  <!--<div class="listMain">-->
+  <!--<div class="mainTitle">曾有机会与马斯克合作造火箭，贝佐斯:他是个好人</div>-->
+  <!--<div class="mainContent">出品|网易科学人栏目组晗冰微信|公号ID：WYKXR163世</div>-->
+  <!--</div>-->
   <!--</li>-->
 
 </ul>
@@ -47,34 +47,31 @@
 
   // https://www.apiopen.top/journalismApi
 
-  function renderElement(parenetEle,data) {
+  // 渲染新闻列表
+  function renderElement(parenetEle, data) {
 
     parenetEle.empty()
-    var liEle=''
-    
-    for (var i=0 ;i<data.length;i++){
+    var liEle = ''
+    var imgUrl = ''
 
-      var imgUrl
+    for (var i = 0; i < data.length; i++) {
 
-      if(data[i]['picInfo'][0]==undefined){
-
-        imgUrl='assert/images/moren.jpg'
-      }else {
-        imgUrl=data[i]['picInfo'][0]['url']
+      if (data[i]['picInfo'][0] == undefined) {
+        imgUrl = 'assert/images/moren.jpg'
+      } else {
+        imgUrl = data[i]['picInfo'][0]['url']
       }
 
       // console.log(data[i]['picInfo'][0]['url'])
 
 
-
-
-      liEle+='<li class="clearfix">\n' +
+      liEle += '<li class="clearfix">\n' +
         '    <div class="listIcon">\n' +
-        '      <a href="'+data[i]['link']+'"><img src="'+imgUrl+'" alt="titleImg"></a>\n' +
+        '      <a href="' + data[i]['link'] + '"><img src="' + imgUrl + '" alt="titleImg"></a>\n' +
         '    </div>\n' +
         '    <div class="listMain">\n' +
-        '      <a href="'+data[i]['link']+'"><div class="mainTitle">'+data[i]['title']+'</div></a>\n' +
-        '      <div class="mainContent">'+data[i]['digest']+'...</div>\n' +
+        '      <a href="' + data[i]['link'] + '"><div class="mainTitle">' + data[i]['title'] + '</div></a>\n' +
+        '      <div class="mainContent">' + data[i]['digest'] + '...</div>\n' +
         '    </div>\n' +
         '  </li>'
     }
@@ -90,9 +87,7 @@
       type: 'get',
       dataType: 'json',
       success: function (data) {
-
-        // console.log(dataT)
-        renderElement($('.newsList'),data['data'][category])
+        renderElement($('.newsList'), data['data'][category])
       },
       error: function (data) {
         console.log('error')
@@ -101,30 +96,29 @@
     })
   }
 
-  function exchangeClass(ele){
-
+  // 分类标签用的切换显示类
+  function exchangeClass(ele) {
     ele.siblings().removeClass('active')
     ele.addClass('active')
-
   }
 
-  $('.newsCatagory').delegate('li','click',function () {
+  $('.newsCatagory').delegate('li', 'click', function () {
 
     exchangeClass($(this))
-    var category=$(this).attr('class').replace(/active|\s/g,'')
+    var category = $(this).attr('class').replace(/active|\s/g, '')
     doingAjax(category)
-    document.cookie=category;
+    document.cookie = category;
 
   })
 
   // 默认加载
   function moren() {
-    if(document.cookie==''){
+    if (document.cookie == '') {
       exchangeClass($('.tech'))
       doingAjax('tech')
     }
     else {
-      exchangeClass($('.'+document.cookie))
+      exchangeClass($('.' + document.cookie))
       doingAjax(document.cookie)
       console.log(document.cookie)
     }
@@ -143,7 +137,6 @@
         $('.newsCatagory').removeClass('fudong')
       }
     });
-
 
   }())
 
