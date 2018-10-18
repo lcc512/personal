@@ -168,12 +168,19 @@ body {
 //加载动画
 .loadingEle{
   position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  opacity: 0.5;
   display: none;
 
   img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
     display: block;
     width: 100px;
     height: 100px;
