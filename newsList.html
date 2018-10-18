@@ -40,6 +40,12 @@
   <!--</li>-->
 
 </ul>
+
+<div class="loadingEle">
+  <img src="assert/images/loading.gif" alt="">
+</div>
+
+
 <!--底部-->
 
 <script src="assert/plugins/js/jquery-1.12.4.min.js"></script>
@@ -79,8 +85,11 @@
     parenetEle.append($(liEle))
 
   }
+  
 
   function doingAjax(category) {
+
+    $('.loadingEle').show()
 
     $.ajax({
       url: 'https://www.apiopen.top/journalismApi',
@@ -88,6 +97,7 @@
       dataType: 'json',
       success: function (data) {
         renderElement($('.newsList'), data['data'][category])
+        $('.loadingEle').hide()
       },
       error: function (data) {
         console.log('error')

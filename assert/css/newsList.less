@@ -60,12 +60,26 @@ body {
   background-color: white;
   //background-color: #5bc0de;
   box-shadow: 0px 5px 20px #ccc;
+  transition: 0.3s ;
 
   //向下移动浮动
   &.fudong{
     position: fixed;
     left: 0;
     top: 0;
+    background-color: @mainColor;
+    li{
+      &.active{
+        a{
+          border-bottom: 2px solid white;
+        }
+      }
+      a{
+        color: white;
+        border-bottom: 2px solid @mainColor;
+      }
+    }
+
   }
 
 
@@ -151,4 +165,18 @@ body {
 
 }
 
+//加载动画
+.loadingEle{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: none;
+
+  img{
+    display: block;
+    width: 100px;
+    height: 100px;
+  }
+}
 //底部
