@@ -112,7 +112,7 @@ body {
 .newsList li {
   padding: 5px 22px;
   position: absolute;
-  transition: 1s all;
+  transition: 0.5s all ease-out;
 }
 .newsList li .listIcon {
   height: 100%;

@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a639df00-a585-4ec4-aec0-ce559f8befe1" name="Default" comment="1，测试更新缓存功能">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assert/css/newsList.css" beforeDir="false" afterPath="$PROJECT_DIR$/assert/css/newsList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assert/css/newsList.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assert/css/newsList.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assert/css/newsList.less" beforeDir="false" afterPath="$PROJECT_DIR$/assert/css/newsList.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/newsList.html" beforeDir="false" afterPath="$PROJECT_DIR$/newsList.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,7 +24,7 @@
         <entry file="file://$PROJECT_DIR$/newsList.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
-              <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+              <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -28,8 +32,8 @@
       <file leaf-file-name="newsList.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assert/css/newsList.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1700">
-              <caret line="68" column="11" selection-start-line="68" selection-start-column="11" selection-end-line="68" selection-end-column="11" />
+            <state relative-caret-position="2950">
+              <caret line="118" column="6" selection-start-line="118" selection-start-column="6" selection-end-line="118" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -64,8 +68,8 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/myWeather.html" />
         <option value="$PROJECT_DIR$/assert/css/myWeather.less" />
-        <option value="$PROJECT_DIR$/assert/css/newsList.less" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/assert/css/newsList.less" />
         <option value="$PROJECT_DIR$/newsList.html" />
       </list>
     </option>
@@ -91,8 +95,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="222" />
-    <option name="y" value="4" />
+    <option name="x" value="399" />
+    <option name="y" value="57" />
     <option name="width" value="1189" />
     <option name="height" value="867" />
   </component>
@@ -104,6 +108,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -132,7 +137,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -226,6 +230,9 @@
       <workItem from="1540949282548" duration="1212000" />
       <workItem from="1540950688770" duration="35000" />
       <workItem from="1540950755720" duration="22000" />
+      <workItem from="1540950858962" duration="208000" />
+      <workItem from="1540971529236" duration="1024000" />
+      <workItem from="1540973522602" duration="17000" />
     </task>
     <task id="LOCAL-00001" summary="缩小banner高度">
       <created>1536626513063</created>
@@ -294,22 +301,22 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49521000" />
+    <option name="totallyTimeSpent" value="50770000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="222" y="4" width="1189" height="867" extended-state="0" />
+    <frame x="399" y="57" width="1189" height="867" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20069505" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.20069505" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32692307" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32692307" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39697802" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39697802" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -664,13 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assert/css/newsList.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="68" column="11" selection-start-line="68" selection-start-column="11" selection-end-line="68" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -678,10 +678,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assert/css/newsList.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2950">
+          <caret line="118" column="6" selection-start-line="118" selection-start-column="6" selection-end-line="118" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/newsList.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+          <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
         </state>
       </provider>
     </entry>
