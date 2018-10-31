@@ -84,6 +84,14 @@
 
     parenetEle.append($(liEle))
 
+
+    xuanran()
+
+    setTimeout(function () {
+      console.log(1111)
+      chushi()
+    },0)
+
   }
   
 
@@ -112,6 +120,32 @@
     ele.addClass('active')
   }
 
+
+
+  function xuanran(){
+    $('.newsList>li').each(function (index) {
+
+      $(this).css({
+        top:index*100+100,
+        transitionDelay:(index+1)*0.05+'s'
+      })
+    })
+  }
+
+  function chushi(){
+    $('.newsList>li').each(function (index) {
+
+      $(this).css({
+        
+        top:index*100,
+        transitionDelay:(index+1)*0.05+'s'
+      })
+    })
+  }
+
+
+
+
   $('.newsCatagory').delegate('li', 'click', function () {
 
     exchangeClass($(this))
@@ -126,15 +160,21 @@
     if (document.cookie == '') {
       exchangeClass($('.tech'))
       doingAjax('tech')
+
     }
     else {
       exchangeClass($('.' + document.cookie))
       doingAjax(document.cookie)
       console.log(document.cookie)
     }
+
   }
 
+  // 初始化默认加载
   moren()
+
+
+
 
   // 分类标签浮动
   ;(function () {
