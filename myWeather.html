@@ -5,7 +5,7 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="assert/css/myWeather.css?version=0.0.5">
+  <link rel="stylesheet" href="assert/css/myWeather.css?version=0.0.6">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_832418_iig9uckp5ta.css">
   <title>测试</title>
   <noscript>
@@ -14,6 +14,7 @@
 
 </head>
 <body>
+
 
 <!--上面-->
 <div class="tq-banner">
@@ -88,7 +89,8 @@
 
   // new IScroll(document.querySelector('#wrapper'));
 
-  (function () {
+
+  ;(function () {
 
     // 获得列表ul
     var $tq_list = $('.tq-list .dailyWeather')
@@ -103,6 +105,26 @@
     //     top: $li.offset().top - $li.offsetParent().offset().top + ($li.outerHeight() / 2) + 5
     //   }).show(1000)
     // }
+
+    // 改天气背景
+    function changeTpBannerBackgroud(info) {
+      
+      var backgroudInfo=''
+      
+      switch (info){
+        case '晴':backgroudInfo='weather_qing1.jpg';break;
+        case '多云':backgroudInfo='weather_duoyun1.jpg';break;
+        case '阴':backgroudInfo='weather_duoyun1.jpg';break;
+        case '阵雨':backgroudInfo='weather_yu1.jpg';break;
+        case '小雨':backgroudInfo='weather_yu1.jpg';break;
+      }
+      
+
+      $('.tq-banner').css({
+
+        backgroundImage: 'url("./assert/images/'+backgroudInfo+'")'
+      })
+    }
 
 
     // 渲染列表方法
@@ -127,6 +149,12 @@
       $('.qlty').html('空气质量: ' + data['HeWeather5'][0]['aqi']['city']['qlty'])
       $('.updateLoc').html('更新于: ' + data['HeWeather5'][0]['basic']['update']['loc'])
       $('.wind').html(weatherBanner['wind']['dir'] + ' ' + weatherBanner['wind']['sc'] + '级')
+
+
+      // 背景渲染
+      changeTpBannerBackgroud(weatherBanner['cond']['txt'])
+
+
 
       // 蒙版详细信息
       var weatherDetail = data['HeWeather5'][0]['suggestion']
@@ -256,10 +284,13 @@
 
           // 看城市是否有效
           var getCityStatus = data['HeWeather5'][0]['status']
+          
+          console.log(addFlag)
+          console.log(getCityStatus)
 
 
           if(addFlag){
-            if(getCityStatus !== 'ok'){
+            if(getCityStatus == 'ok'){
               addNewCityBtn(data['HeWeather5'][0]['basic']['city'])
             }else {
               alert('该城市输入错误或未收录')
@@ -268,8 +299,7 @@
 
           setWeatherList(data)
             // setActivePoint()
-
-
+          
 
         },
         error: function () {
