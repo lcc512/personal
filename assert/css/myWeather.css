@@ -53,6 +53,7 @@ body {
   padding-left: 5px;
 }
 .tq-banner .detailBtn {
+  z-index: 999;
   text-align: center;
 }
 .tq-banner .detailBtn a {
@@ -227,8 +228,8 @@ body {
   display: none;
 }
 #login {
-  width: 300px;
-  height: 500px;
+  width: 20px;
+  height: 20px;
   background-color: #f9f9f9;
   border-radius: 10px;
   border: 1px solid #ccc;
@@ -238,9 +239,15 @@ body {
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
-  display: none;
-  z-index: 999;
   padding: 20px;
+  opacity: 0;
+  transition: width 0.5s,height 0.5s 0.5s;
+}
+#login.active {
+  width: 300px;
+  height: 500px;
+  z-index: 999;
+  opacity: 1;
 }
 #login p {
   color: #333333;

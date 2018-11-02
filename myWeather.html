@@ -5,7 +5,7 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="assert/css/myWeather.css?version=0.0.6">
+  <link rel="stylesheet" href="assert/css/myWeather.css?version=0.0.7">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_832418_iig9uckp5ta.css">
   <title>测试</title>
   <noscript>
@@ -180,6 +180,7 @@
       weatherClassList['小雨'] = 'iconfont icon-baitian-xiaoyu'
       weatherClassList['中雨'] = 'iconfont icon-baitian-zhongyu'
       weatherClassList['雷阵雨'] = 'iconfont icon-baitian-lei'
+      weatherClassList['雨夹雪'] = 'iconfont icon-baitian-xiaoxue'
 
       // 渲染小时天气-----------------------
       weatherListHourly.forEach(function (item, index) {
@@ -332,7 +333,9 @@
 
       // 显示面板和蒙版
       $('#panel').show()
-      $('#login').show(500)
+      // $('#login').show()
+      $('#login').addClass('active')
+
 
       // 隐藏滚动条
       $('body').css('overflow', 'hidden')
@@ -346,7 +349,8 @@
 
       if (e.target.id !== 'login') {
         $('#panel').hide()
-        $('#login').hide()
+        // $('#login').hide()
+        $('#login').removeClass('active')
         $('body').css('overflow', 'visible')
 
       }

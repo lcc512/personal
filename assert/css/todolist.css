@@ -1,0 +1,109 @@
+/* 清除内外边距 */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+fieldset,
+lengend,
+button,
+input,
+textarea,
+th,
+td {
+  /* table elements 表格元素 */
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Microsoft YaHei UI", sans-serif;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+.clearfix::before,
+.clearfix:after {
+  content: "";
+  /*设置内容为空*/
+  height: 0;
+  /*高度为0*/
+  line-height: 0;
+  /*行高为0*/
+  display: block;
+  /*将文本转为块级元素*/
+  visibility: hidden;
+  /*将元素隐藏*/
+  clear: both /*清除浮动*/;
+}
+.clearfix {
+  zoom: 1;
+  /*兼容IE*/
+}
+a {
+  text-decoration: none;
+}
+header {
+  padding: 40px 0;
+  text-align: center;
+}
+header h2 {
+  border-bottom: 2px solid #ededed;
+}
+.main {
+  width: 100%;
+}
+.main ul {
+  width: 100%;
+}
+.main ul li {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.main ul li .list_header {
+  width: 20%;
+  float: left;
+}
+.main ul li .list_header span {
+  display: block;
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #5197e1;
+  background-color: #fff;
+}
+.main ul li .list_header span.active {
+  background-color: #5197e1;
+}
+.main ul li .list_main {
+  width: 65%;
+  padding: 20px;
+  float: left;
+  border: 1px solid #ededed;
+  box-shadow: 0px 5px 5px #ededed;
+  word-break: break-all;
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #cccccc;
+}
+/*# sourceMappingURL=todolist.css.map */
