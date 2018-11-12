@@ -1,0 +1,321 @@
+@mainColor: #0099CC;
+@fontBackgroundColor: #ededed;
+@mainFontSize: 14px;
+@largeFontSize: 24px;
+@littelFontSize: 12px;
+@doneColor:#2aabd2;
+@wantColor:#5cb85c;
+@zengColor:#f0ad4e;
+
+//清空默认样式
+/* 清除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td { /* table elements 表格元素 */
+  margin: 0;
+  padding: 0;
+}
+
+//border-box的正确用法
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Microsoft YaHei UI", sans-serif;
+  width: 100%;
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+.clearfix::before, .clearfix:after {
+  content: ""; /*设置内容为空*/
+  height: 0; /*高度为0*/
+  line-height: 0; /*行高为0*/
+  display: block; /*将文本转为块级元素*/
+  visibility: hidden; /*将元素隐藏*/
+  clear: both /*清除浮动*/
+}
+
+.clearfix {
+  zoom: 1; /*兼容IE*/
+}
+
+a {
+  text-decoration: none;
+}
+
+.footerBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 44px;
+  background-color: #faf2cc;
+  display: none;
+}
+
+//第一界面
+.firstView {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  li {
+    width: 100%;
+    display: block;
+    a {
+      position: absolute;
+      width: 70%;
+      height: 150px;
+      border-radius: 20px;
+      box-shadow: 3px 6px 15px #ccc;
+      color: white;
+      text-align: center;
+      font-size: @largeFontSize;
+      line-height: 150px;
+
+      left: 50%;
+      transform: translateX(-50%);
+
+      &.doneDiv {
+        transition: 0.3s all;
+        top: 50px;
+        background-color: @doneColor;
+      }
+      &.wantDiv {
+        transition: 0.4s all;
+        top: 240px;
+        background-color: @wantColor;
+      }
+      &.zengDiv {
+        transition: 0.5s all;
+        top: 430px;
+        background-color: @zengColor;
+      }
+    }
+  }
+}
+
+//list界面
+.mainList {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  ul {
+    display: none;
+    padding: 0 10px;
+
+    //给want列表配不同的颜色
+    &.wantList{
+      .listOther span{
+        background-color: @wantColor;
+      }
+    }
+
+    li {
+      width: 100%;
+      height: 140px;
+      margin-bottom: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 15px;
+      box-shadow: 3px 6px 15px #ccc;
+      overflow: auto;
+
+      .listMain {
+        width: 80%;
+        float: left;
+        padding: 20px;
+        //background-color: #f0ad4e;
+
+        .listContent {
+          width: 100%;
+          height: 80px;
+          overflow: hidden;
+          padding-bottom: 10px;
+        }
+        .listDate {
+          font-size: @littelFontSize;
+          text-align: right;
+
+        }
+      }
+      .listOther {
+        width: 20%;
+        float: left;
+        height: 100%;
+        border-right: 1px solid #ccc;
+        //background-color: forestgreen;
+        span {
+          display: block;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: @doneColor;
+          box-shadow: 1px 3px 3px #ccc;
+          margin: 40px auto 0;
+        }
+      }
+
+
+    }
+
+
+  }
+  .zengList {
+    display: none;
+
+    li{
+      height: 550px;
+    }
+
+    .editViewADD {
+
+      padding-top: 50px;
+
+      form{
+        textarea {
+
+          font-size: @mainFontSize;
+
+          border: 0;
+          outline: 0;
+          resize: none;
+
+          display: block;
+          width: 90%;
+          height: 140px;
+          border-radius: 15px;
+          text-indent: 10px;
+          margin: 20px auto;
+          padding: 10px;
+        }
+        input {
+          font-size: @mainFontSize;
+
+          border: 0;
+          outline: 0;
+
+          display: block;
+          width: 90%;
+          height: 40px;
+          border-radius: 15px;
+          text-indent: 10px;
+          margin: 20px auto;
+
+          line-height: 40px;
+
+          &.editSubmit{
+            background-color: @zengColor;
+            color: #fff;
+          }
+
+
+        }
+
+
+
+        &>div{
+          font-size: @mainFontSize;
+          text-align: center;
+          input{
+            padding-right: 10px;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+          }
+        }
+      }
+
+
+
+
+
+    }
+
+  }
+}
+
+//编辑页面
+.editView {
+  display: none;
+  background-color: #f9f9f9;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding-top: 150px;
+
+  form{
+    textarea {
+
+      font-size: @mainFontSize;
+
+      border: 0;
+      outline: 0;
+      resize: none;
+
+      display: block;
+      width: 90%;
+      height: 140px;
+      border-radius: 15px;
+      text-indent: 10px;
+      margin: 20px auto;
+      padding: 10px;
+    }
+    input {
+      font-size: @mainFontSize;
+
+      border: 0;
+      outline: 0;
+
+      display: block;
+      width: 90%;
+      height: 40px;
+      border-radius: 15px;
+      text-indent: 10px;
+      margin: 20px auto;
+
+      line-height: 40px;
+
+      &.editSubmit{
+        //background-color: @doneColor;
+        color: #fff;
+      }
+
+    }
+    &>div{
+      font-size: @mainFontSize;
+      text-align: center;
+      input{
+        padding-right: 10px;
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+
+
+      }
+    }
+  }
+
+
+
+
+
+
+}

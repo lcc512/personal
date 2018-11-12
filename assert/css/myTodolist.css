@@ -1,0 +1,264 @@
+/* 清除内外边距 */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+fieldset,
+lengend,
+button,
+input,
+textarea,
+th,
+td {
+  /* table elements 表格元素 */
+  margin: 0;
+  padding: 0;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Microsoft YaHei UI", sans-serif;
+  width: 100%;
+  height: 100%;
+}
+ul {
+  list-style: none;
+}
+.clearfix::before,
+.clearfix:after {
+  content: "";
+  /*设置内容为空*/
+  height: 0;
+  /*高度为0*/
+  line-height: 0;
+  /*行高为0*/
+  display: block;
+  /*将文本转为块级元素*/
+  visibility: hidden;
+  /*将元素隐藏*/
+  clear: both /*清除浮动*/;
+}
+.clearfix {
+  zoom: 1;
+  /*兼容IE*/
+}
+a {
+  text-decoration: none;
+}
+.footerBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 44px;
+  background-color: #faf2cc;
+  display: none;
+}
+.firstView {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.firstView li {
+  width: 100%;
+  display: block;
+}
+.firstView li a {
+  position: absolute;
+  width: 70%;
+  height: 150px;
+  border-radius: 20px;
+  box-shadow: 3px 6px 15px #ccc;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  line-height: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.firstView li a.doneDiv {
+  transition: 0.3s all;
+  top: 50px;
+  background-color: #2aabd2;
+}
+.firstView li a.wantDiv {
+  transition: 0.4s all;
+  top: 240px;
+  background-color: #5cb85c;
+}
+.firstView li a.zengDiv {
+  transition: 0.5s all;
+  top: 430px;
+  background-color: #f0ad4e;
+}
+.mainList {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.mainList ul {
+  display: none;
+  padding: 0 10px;
+}
+.mainList ul.wantList .listOther span {
+  background-color: #5cb85c;
+}
+.mainList ul li {
+  width: 100%;
+  height: 140px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 3px 6px 15px #ccc;
+  overflow: auto;
+}
+.mainList ul li .listMain {
+  width: 80%;
+  float: left;
+  padding: 20px;
+}
+.mainList ul li .listMain .listContent {
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+.mainList ul li .listMain .listDate {
+  font-size: 12px;
+  text-align: right;
+}
+.mainList ul li .listOther {
+  width: 20%;
+  float: left;
+  height: 100%;
+  border-right: 1px solid #ccc;
+}
+.mainList ul li .listOther span {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #2aabd2;
+  box-shadow: 1px 3px 3px #ccc;
+  margin: 40px auto 0;
+}
+.mainList .zengList {
+  display: none;
+}
+.mainList .zengList li {
+  height: 550px;
+}
+.mainList .zengList .editViewADD {
+  padding-top: 50px;
+}
+.mainList .zengList .editViewADD form textarea {
+  font-size: 14px;
+  border: 0;
+  outline: 0;
+  resize: none;
+  display: block;
+  width: 90%;
+  height: 140px;
+  border-radius: 15px;
+  text-indent: 10px;
+  margin: 20px auto;
+  padding: 10px;
+}
+.mainList .zengList .editViewADD form input {
+  font-size: 14px;
+  border: 0;
+  outline: 0;
+  display: block;
+  width: 90%;
+  height: 40px;
+  border-radius: 15px;
+  text-indent: 10px;
+  margin: 20px auto;
+  line-height: 40px;
+}
+.mainList .zengList .editViewADD form input.editSubmit {
+  background-color: #f0ad4e;
+  color: #fff;
+}
+.mainList .zengList .editViewADD form > div {
+  font-size: 14px;
+  text-align: center;
+}
+.mainList .zengList .editViewADD form > div input {
+  padding-right: 10px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+.editView {
+  display: none;
+  background-color: #f9f9f9;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding-top: 150px;
+}
+.editView form textarea {
+  font-size: 14px;
+  border: 0;
+  outline: 0;
+  resize: none;
+  display: block;
+  width: 90%;
+  height: 140px;
+  border-radius: 15px;
+  text-indent: 10px;
+  margin: 20px auto;
+  padding: 10px;
+}
+.editView form input {
+  font-size: 14px;
+  border: 0;
+  outline: 0;
+  display: block;
+  width: 90%;
+  height: 40px;
+  border-radius: 15px;
+  text-indent: 10px;
+  margin: 20px auto;
+  line-height: 40px;
+}
+.editView form input.editSubmit {
+  color: #fff;
+}
+.editView form > div {
+  font-size: 14px;
+  text-align: center;
+}
+.editView form > div input {
+  padding-right: 10px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+/*# sourceMappingURL=myTodolist.css.map */

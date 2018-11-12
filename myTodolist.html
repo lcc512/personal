@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="assert/css/myTodolist.css?version=0.0.1">
+  <!--<link rel="stylesheet" href="assert/plugins/css/bootstrap.min.css">-->
+  <!--<link rel="stylesheet" href="https://at.alicdn.com/t/font_832418_iig9uckp5ta.css">-->
+  <title>测试</title>
+  <noscript>
+    <p>这个浏览器不让用javascript，高级设置开一下</p>
+  </noscript>
+
+</head>
+<body>
+
+<!--第一界面-->
+<ul class="firstView">
+  <li>
+    <a class="doneDiv" href="javascript:void(0);">DONE</a>
+  </li>
+  <li>
+    <a class="wantDiv" href="javascript:void(0);">WANT</a>
+  </li>
+  <li>
+    <a class="zengDiv" href="javascript:void(0);">ADD</a>
+  </li>
+</ul>
+<!--底部功能按钮-->
+<div class="footerBar">
+  <a class="backFirstView" href="javascript:void(0);">返回</a>
+</div>
+
+<!--列表页-->
+<div class="mainList">
+  <ul class="doneList">
+    <li class="clearfix">
+      <div class="listOther">
+        <span></span>
+      </div>
+      <div class="listMain">
+        <p class="listContent">汪海林编剧diss的真
+          痛快，像蔡徐坤、迪开娱乐圈，他们没
+        </p>
+        <p class="listDate">2018-10-10</p>
+      </div>
+
+
+    </li>
+    <li class="clearfix">
+      <div class="listOther">
+        <span></span>
+      </div>
+      <div class="listMain">
+        <p class="listContent">汪海林编剧diss的真
+          痛快，像蔡徐坤、迪丽热他们没
+        </p>
+        <p class="listDate">2018-10-10</p>
+      </div>
+
+
+    </li>
+    <li class="clearfix">
+      <div class="listOther">
+        <span></span>
+      </div>
+      <div class="listMain">
+        <p class="listContent">汪海林编剧diss的真
+          痛快，像蔡徐坤、迪丽热巴和吴亦凡这种玩
+          数据的三流水平的明星，就应该离开娱乐圈，他们没
+        </p>
+        <p class="listDate">2018-10-10</p>
+      </div>
+
+
+    </li>
+    <li class="clearfix">
+      <div class="listOther">
+        <span></span>
+      </div>
+      <div class="listMain">
+        <p class="listContent">汪海林编剧diss的真
+          痛快，像蔡徐坤、迪丽热巴和吴亦凡这种玩
+          数据的三流水平的明星，就应该离开娱乐圈，他们没
+          痛快，像蔡徐坤、迪丽热巴和吴亦凡这种玩
+          数据的三流水平的明星，就应该离开娱乐圈，他们没痛快，像
+          蔡徐坤、迪丽热巴和吴亦凡这种玩
+          数据的三流水平的明星，就应该离开娱乐圈，他们没
+        </p>
+        <p class="listDate">2018-10-10</p>
+      </div>
+
+
+    </li>
+  </ul>
+  <ul class="wantList">
+    <li class="clearfix">
+      <div class="listOther">
+        <span></span>
+      </div>
+      <div class="listMain">
+        <p class="listContent">ery-读取form表单中的所有数据列表
+        </p>
+        <p class="listDate">2019-10-10</p>
+      </div>
+
+
+    </li>
+    <li class="clearfix">
+      <div class="listOther">
+        <span></span>
+      </div>
+      <div class="listMain">
+        <p class="listContent">ery-读取form表单中的所有数据列表
+        </p>
+        <p class="listDate">2019-10-10</p>
+      </div>
+
+
+    </li>
+    <li class="clearfix">
+      <div class="listOther">
+        <span></span>
+      </div>
+      <div class="listMain">
+        <p class="listContent">ery-读取form表单中的所有数据列表
+        </p>
+        <p class="listDate">2019-10-10</p>
+      </div>
+
+
+    </li>
+  </ul>
+  <ul class="zengList">
+    <li>
+      <div class="editViewADD">
+
+        <form action="">
+          <textarea type="text" placeholder="输入事项" name="content"></textarea>
+          <input type="date"  name="date">
+          <div>
+            <input name="catagory" type="radio"  checked="checked" value="DONE">DONE
+            <input name="catagory" type="radio" value="WANT">WANT
+          </div>
+
+          <input class="editSubmit" type="submit" value="可以了">
+        </form>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!--编辑页面-->
+<div class="editView">
+
+  <form action="">
+    <textarea type="text" placeholder="输入事项" name="content"></textarea>
+    <input type="date"  name="date">
+    <div>
+      <input name="catagory" type="radio"  checked="checked" value="DONE">DONE
+      <input name="catagory" type="radio" value="WANT">WANT
+    </div>
+
+    <input class="editSubmit" type="submit" value="可以了">
+  </form>
+</div>
+
+
+
+
+
+
+
+<script src="assert/plugins/js/jquery-1.12.4.min.js"></script>
+<script>
+
+
+  ;(function () {
+
+
+    // 返回主页加载内容
+    function backFistView() {
+
+
+      $('.firstView li a').css({
+        position: 'absolute',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        opacity: '1',
+        borderRadius: '20px',
+        height: 150,
+        width: '70%',
+        lineHeight: '150px'
+      })
+
+
+      $('.doneDiv').css('top', '50px')
+      $('.wantDiv').css('top', '240px')
+      $('.zengDiv').css('top', '430px')
+
+      // 隐藏列表内容
+      $('.mainList ul, .mainList .zengList').hide()
+
+      $('.footerBar').hide()
+
+      $('.firstView li').css('display', 'block')
+
+
+    }
+
+
+    $('.backFirstView').click(function () {
+      backFistView()
+    })
+
+
+    // 加载列表界面
+    function loadList(className) {
+
+      var tempName = className.replace('Div', 'List')
+
+      $('.' + tempName).slideDown(500)
+
+      // 显示底部bar
+      $('.footerBar').show()
+    }
+
+
+    function switchView(ele) {
+      ele.css({
+        position: 'fixed',
+        left: 0,
+        top: 0,
+        width: '100%',
+        height: '50px',
+        lineHeight: '50px',
+        borderRadius: 0,
+        transform: 'translateX(0)'
+      })
+
+      ele.parent().siblings().children('a').css('opacity', '0')
+
+      // display这个参数得用计时器限制一下
+      setTimeout(function () {
+        ele.parent().siblings().css('display', 'none')
+      }, 0)
+    }
+
+
+    $('.firstView').delegate('li>a', 'click', function () {
+
+      // 切换动画
+      switchView($(this))
+
+      // 加载对应list
+      loadList($(this).attr('class'))
+
+    })
+
+  }())
+  
+
+  ;(function () {
+
+    $('.listContent').click(function () {
+
+      $('.editView').show(500)
+      
+      console.log(1111)
+    })
+
+
+
+    $('form').submit(function() {
+      alert($(this).serialize());
+
+
+      $(this).parent().hide()
+      return false;
+
+
+    });
+  }())
+
+</script>
+</body>
+</html>
