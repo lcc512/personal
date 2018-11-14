@@ -42,11 +42,11 @@
       </div>
       <div class="listMain">
         <p class="listContent">汪海林编剧diss的真
-          痛快，像蔡徐坤、迪开娱乐圈，他们没
+          痛快，像蔡徐坤、迪丽热巴和吴亦凡这种玩
+          数据的三流水平的明星，就应该离开娱乐圈，他们没
         </p>
         <p class="listDate">2018-10-10</p>
       </div>
-
 
     </li>
     <li class="clearfix">
@@ -54,40 +54,8 @@
         <span></span>
       </div>
       <div class="listMain">
-        <p class="listContent">汪海林编剧diss的真
-          痛快，像蔡徐坤、迪丽热他们没
-        </p>
-        <p class="listDate">2018-10-10</p>
-      </div>
-
-
-    </li>
-    <li class="clearfix">
-      <div class="listOther">
-        <span></span>
-      </div>
-      <div class="listMain">
-        <p class="listContent">汪海林编剧diss的真
-          痛快，像蔡徐坤、迪丽热巴和吴亦凡这种玩
-          数据的三流水平的明星，就应该离开娱乐圈，他们没
-        </p>
-        <p class="listDate">2018-10-10</p>
-      </div>
-
-
-    </li>
-    <li class="clearfix">
-      <div class="listOther">
-        <span></span>
-      </div>
-      <div class="listMain">
-        <p class="listContent">汪海林编剧diss的真
-          痛快，像蔡徐坤、迪丽热巴和吴亦凡这种玩
-          数据的三流水平的明星，就应该离开娱乐圈，他们没
-          痛快，像蔡徐坤、迪丽热巴和吴亦凡这种玩
-          数据的三流水平的明星，就应该离开娱乐圈，他们没痛快，像
-          蔡徐坤、迪丽热巴和吴亦凡这种玩
-          数据的三流水平的明星，就应该离开娱乐圈，他们没
+        <p class="listContent">
+          buzhidmasdfdsfd
         </p>
         <p class="listDate">2018-10-10</p>
       </div>
@@ -108,6 +76,7 @@
 
 
     </li>
+
     <li class="clearfix">
       <div class="listOther">
         <span></span>
@@ -117,19 +86,6 @@
         </p>
         <p class="listDate">2019-10-10</p>
       </div>
-
-
-    </li>
-    <li class="clearfix">
-      <div class="listOther">
-        <span></span>
-      </div>
-      <div class="listMain">
-        <p class="listContent">ery-读取form表单中的所有数据列表
-        </p>
-        <p class="listDate">2019-10-10</p>
-      </div>
-
 
     </li>
   </ul>
@@ -145,7 +101,7 @@
             <input name="catagory" type="radio" value="WANT">WANT
           </div>
 
-          <input class="editSubmit" type="submit" value="可以了">
+          <input id="zeng" class="editSubmit" type="submit" value="可以了">
         </form>
       </div>
     </li>
@@ -156,6 +112,7 @@
 <div class="editView">
 
   <form action="">
+    <label for=""></label>
     <textarea type="text" placeholder="输入事项" name="content"></textarea>
     <input type="date"  name="date">
     <div>
@@ -163,26 +120,22 @@
       <input name="catagory" type="radio" value="WANT">WANT
     </div>
 
-    <input class="editSubmit" type="submit" value="可以了">
+    <input id="edit" class="editSubmit" type="submit" value="可以了">
   </form>
 </div>
 
 
-
-
-
-
-
 <script src="assert/plugins/js/jquery-1.12.4.min.js"></script>
+<script src="assert/plugins/js/Bmob-1.6.5.min.js"></script>
 <script>
 
 
   ;(function () {
 
 
-    // 返回主页加载内容
-    function backFistView() {
 
+    // 返回主页界面加载
+    function backFistView() {
 
       $('.firstView li a').css({
         position: 'absolute',
@@ -201,23 +154,51 @@
       $('.zengDiv').css('top', '430px')
 
       // 隐藏列表内容
-      $('.mainList ul, .mainList .zengList').hide()
+      $('.mainList>ul').hide()
 
       $('.footerBar').hide()
 
       $('.firstView li').css('display', 'block')
 
-
     }
 
-
+    // 返回按钮
     $('.backFirstView').click(function () {
       backFistView()
     })
 
 
+    // 列表渲染页面
+    function productList(data) {
+
+      var listStr=''
+
+      for(var i=0;i<data.length;i++){
+        listStr+=' <li class="clearfix">\n' +
+          '      <div class="listOther">\n' +
+          '        <span></span>\n' +
+          '      </div>\n' +
+          '      <div class="listMain" data-id="'+data[i]["objectId"]+'">\n' +
+          '        <p class="listContent">'+data[i]["content"]+'</p>\n' +
+        '        <p class="listDate">'+data[i]["date"]+'</p>\n' +
+        '      </div></li>'
+
+      }
+
+      $('.doneList').empty()
+      $('.doneList').append($(listStr))
+
+      $('.wantList').empty()
+      $('.wantList').append($(listStr))
+
+      listStr=''
+
+    }
+
     // 加载列表界面
     function loadList(className) {
+
+      doBombSelectAll()
 
       var tempName = className.replace('Div', 'List')
 
@@ -228,6 +209,7 @@
     }
 
 
+// 切换不同view动画
     function switchView(ele) {
       ele.css({
         position: 'fixed',
@@ -259,30 +241,162 @@
 
     })
 
-  }())
-  
+    // 显示编辑页面
+    // $('.listMain').click(function () {
+    //
+    //
+    //
+    // })
 
-  ;(function () {
 
-    $('.listContent').click(function () {
+    $('.mainList').delegate('.listMain','click',function () {
+      loadEditer($(this))
 
       $('.editView').show(500)
-      
-      console.log(1111)
     })
 
 
 
-    $('form').submit(function() {
-      alert($(this).serialize());
 
+    // 编辑页面form
+    $('#edit').click(function() {
+      
+      console.log('edididiididd')
 
-      $(this).parent().hide()
+      var parentForm=$(this).parent()
+
+      var listData={
+        id:$('.editView label').html(),
+        content:$('.editView textarea').val(),
+        date:$('.editView input[name="date"]').val()
+      }
+
+      if(doBombUpdate(listData)){
+        alert('修改成功')
+      }else{
+        alert('没改成')
+      }
+
+      // console.log(doBombUpdate(listData))
+
+      $('.editView').hide()
       return false;
 
+    });
+
+
+
+    // 新增页面form
+    $('#zeng').click(function() {
+
+      pushEditer()
+
+      $('.editView').hide()
+      backFistView()
+      return false;
 
     });
+
+
+    // 载入编辑页面，thisEle是listMain
+    function loadEditer(thisEle) {
+
+      var content=thisEle.children('.listContent').html()
+      var date=thisEle.children('.listDate').html()
+
+      $('.editView input[name="date"]').val(date)
+
+      $('.editView textarea').val(content)
+
+      $('.editView label').html(thisEle.data('id'))
+
+    }
+
+    //新增事项
+    function pushEditer() {
+
+      var content=$('.editViewADD textarea').val()
+      var date=$('.editViewADD input[name="date"]').val()
+
+
+      var listData={
+        content:content,
+        date:date
+      }
+
+      // 数据库增加操作
+      doBombZeng(listData)
+
+    }
+
+
+    function doBombZeng(listData) {
+
+      // 用自己的key初始化
+      Bmob.initialize("a1ab380a6d5d68ab035bba846565d26c", "a24e873ac9ab76aa5002a7361c61ae11");
+
+      var query = Bmob.Query('myTodolist');
+
+      query.set('content', listData.content)
+      query.set('date', listData.date)
+
+      query.save().then(function (res) {
+        // console.log(res)
+        doBombSelectAll()
+      }).catch(function (err) {
+        // console.log(err)
+      })
+
+    }
+
+    // 查询所有
+    function doBombSelectAll() {
+
+      // 用自己的key初始化
+      Bmob.initialize("a1ab380a6d5d68ab035bba846565d26c", "a24e873ac9ab76aa5002a7361c61ae11");
+
+      var query = Bmob.Query('myTodolist');
+
+      query.order("date");
+
+      query.find().then(function (res){
+        // console.log(res)
+        productList(res)
+      }).catch(function (err){
+        // console.log(err)
+      })
+
+    }
+
+    // 查询所有
+    function doBombUpdate(listData) {
+
+      console.log('bommdgfd')
+
+      // 用自己的keyUpdate初始化
+      Bmob.initialize("a1ab380a6d5d68ab035bba846565d26c", "a24e873ac9ab76aa5002a7361c61ae11");
+
+      var query = Bmob.Query('myTodolist');
+
+      query.set('id', listData.id)
+      query.set('content', listData.content)
+      query.set('date', listData.date)
+
+      query.save().then(function (res){
+        console.log(res)
+      }).catch(function (err){
+        console.log(err)
+      })
+
+      return true
+
+    }
+
+
+
   }())
+  
+
 
 </script>
 </body>
