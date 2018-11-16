@@ -1,11 +1,14 @@
 @mainColor: #0099CC;
+@mainBackColor: #fff;
 @fontBackgroundColor: #ededed;
-@mainFontSize: 14px;
-@largeFontSize: 24px;
-@littelFontSize: 12px;
-@doneColor:#2aabd2;
-@wantColor:#5cb85c;
-@zengColor:#f0ad4e;
+@mainFontSize: 18px;
+@mainFontColor: #666;
+@largeFontSize: 32px;
+@littelFontSize: 14px;
+@doneColor: #2aabd2;
+@wantColor: #5cb85c;
+@zengColor: #f0ad4e;
+@iconColor:#cb1515;
 
 //清空默认样式
 /* 清除内外边距 */
@@ -36,10 +39,13 @@ body {
   font-family: "Microsoft YaHei UI", sans-serif;
   width: 100%;
   height: 100%;
+  color: @mainFontColor;
+  background-color: @mainBackColor;
 }
 
 ul {
   list-style: none;
+  //transition: 0.5s all;
 }
 
 .clearfix::before, .clearfix:after {
@@ -59,6 +65,7 @@ a {
   text-decoration: none;
 }
 
+//底栏
 .footerBar {
   position: fixed;
   left: 0;
@@ -66,48 +73,83 @@ a {
   bottom: 0;
   width: 100%;
   height: 44px;
-  background-color: #faf2cc;
-  display: none;
+  z-index: 999;
+
+  & > div {
+    display: none;
+    width: 30%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: @zengColor;
+    border-radius: 22px;
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+  }
+
 }
 
 //第一界面
 .firstView {
-  position: relative;
+  //position: relative;
   width: 100%;
   height: 100%;
   li {
     width: 100%;
+    height: 30%;
     display: block;
+    position: relative;
     a {
       position: absolute;
-      width: 70%;
-      height: 150px;
+      width: 60%;
+      height: 120px;
       border-radius: 20px;
-      box-shadow: 3px 6px 15px #ccc;
+      box-shadow: 2px 3px 15px #ccc;
       color: white;
       text-align: center;
       font-size: @largeFontSize;
-      line-height: 150px;
+      line-height: 120px;
 
       left: 50%;
       transform: translateX(-50%);
 
       &.doneDiv {
         transition: 0.3s all;
-        top: 50px;
+        top: 70px;
         background-color: @doneColor;
       }
       &.wantDiv {
         transition: 0.4s all;
-        top: 240px;
+        top: 260px;
         background-color: @wantColor;
       }
       &.zengDiv {
         transition: 0.5s all;
-        top: 430px;
+        top: 450px;
         background-color: @zengColor;
       }
+
+
+      //角标
+      .firstViewIcon{
+        position: absolute;
+        top: -7%;
+        right: -7%;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: @iconColor;
+        border: 2px solid #fff;
+        box-shadow: 2px 2px 6px #ccc;
+        color: #fff;
+        font-size: @littelFontSize;
+        text-align: center;
+        line-height: 30px;
+      }
     }
+
+
+
   }
 }
 
@@ -120,21 +162,25 @@ a {
     padding: 0 10px;
 
     //给want列表配不同的颜色
-    &.wantList{
-      .listOther span{
+    &.wantList {
+      .listOther span {
         background-color: @wantColor;
+      }
+    }
+    &.doneList {
+      .listOther span {
+        background-color: @doneColor;
       }
     }
 
     li {
       width: 100%;
-      height: 140px;
+      height: 100px;
       margin-bottom: 20px;
       background-color: #f9f9f9;
       border: 1px solid #ccc;
       border-radius: 15px;
-      box-shadow: 3px 6px 15px #ccc;
-      overflow: auto;
+      box-shadow: 1px 2px 18px #ddd;
 
       .listMain {
         width: 80%;
@@ -144,9 +190,15 @@ a {
 
         .listContent {
           width: 100%;
-          height: 80px;
+          height: 55px;
           overflow: hidden;
-          padding-bottom: 10px;
+          padding-bottom: 5px;
+
+          //字体省略号
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+
         }
         .listDate {
           font-size: @littelFontSize;
@@ -159,27 +211,25 @@ a {
         float: left;
         height: 100%;
         border-right: 1px solid #ccc;
-        //background-color: forestgreen;
+
         span {
           display: block;
           width: 50px;
           height: 50px;
           border-radius: 50%;
-          background-color: @doneColor;
+          background: url("../images/deleteIcon.png") no-repeat center;
           box-shadow: 1px 3px 3px #ccc;
-          margin: 40px auto 0;
+          margin: 20px auto 0;
         }
       }
 
-
     }
-
 
   }
   .zengList {
     display: none;
 
-    li{
+    li {
       height: 550px;
     }
 
@@ -187,8 +237,10 @@ a {
 
       padding-top: 50px;
 
-      form{
+      form {
+
         textarea {
+          font-family: "Microsoft YaHei UI", sans-serif;
 
           font-size: @mainFontSize;
 
@@ -206,7 +258,7 @@ a {
         }
         input {
           font-size: @mainFontSize;
-
+          font-family: "Microsoft YaHei UI", sans-serif;
           border: 0;
           outline: 0;
 
@@ -219,31 +271,31 @@ a {
 
           line-height: 40px;
 
-          &.editSubmit{
+          &.editSubmit {
             background-color: @zengColor;
             color: #fff;
           }
 
-
         }
 
-
-
-        &>div{
+        .catagory {
           font-size: @mainFontSize;
-          text-align: center;
-          input{
-            padding-right: 10px;
-            width: 20px;
-            height: 20px;
-            display: inline-block;
-          }
+          font-family: "Microsoft YaHei UI", sans-serif;
+          border: 0;
+          outline: 0;
+
+          display: block;
+          width: 90%;
+          height: 40px;
+          border-radius: 15px;
+          text-indent: 10px;
+          margin: 20px auto;
+
+          line-height: 40px;
+
         }
+
       }
-
-
-
-
 
     }
 
@@ -260,9 +312,16 @@ a {
   top: 0;
   bottom: 0;
   padding-top: 150px;
+  z-index: 99;
 
-  form{
+  form {
+
+    label {
+      display: none;
+    }
+
     textarea {
+      font-family: "Microsoft YaHei UI", sans-serif;
 
       font-size: @mainFontSize;
 
@@ -280,7 +339,7 @@ a {
     }
     input {
       font-size: @mainFontSize;
-
+      font-family: "Microsoft YaHei UI", sans-serif;
       border: 0;
       outline: 0;
 
@@ -293,29 +352,30 @@ a {
 
       line-height: 40px;
 
-      &.editSubmit{
-        //background-color: @doneColor;
+      &.editSubmit {
+        background-color: #aaa;
         color: #fff;
       }
 
     }
-    &>div{
+
+    .catagory {
       font-size: @mainFontSize;
-      text-align: center;
-      input{
-        padding-right: 10px;
-        width: 20px;
-        height: 20px;
-        display: inline-block;
+      font-family: "Microsoft YaHei UI", sans-serif;
+      border: 0;
+      outline: 0;
 
+      display: block;
+      width: 90%;
+      height: 40px;
+      border-radius: 15px;
+      text-indent: 10px;
+      margin: 20px auto;
 
-      }
+      line-height: 40px;
+
     }
+
   }
-
-
-
-
-
 
 }

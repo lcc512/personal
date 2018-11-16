@@ -42,6 +42,8 @@ body {
   font-family: "Microsoft YaHei UI", sans-serif;
   width: 100%;
   height: 100%;
+  color: #666;
+  background-color: #fff;
 }
 ul {
   list-style: none;
@@ -74,45 +76,71 @@ a {
   bottom: 0;
   width: 100%;
   height: 44px;
-  background-color: #faf2cc;
+  z-index: 999;
+}
+.footerBar > div {
   display: none;
+  width: 30%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #f0ad4e;
+  border-radius: 22px;
+  text-align: center;
+  line-height: 44px;
+  color: #fff;
 }
 .firstView {
-  position: relative;
   width: 100%;
   height: 100%;
 }
 .firstView li {
   width: 100%;
+  height: 30%;
   display: block;
+  position: relative;
 }
 .firstView li a {
   position: absolute;
-  width: 70%;
-  height: 150px;
+  width: 60%;
+  height: 120px;
   border-radius: 20px;
-  box-shadow: 3px 6px 15px #ccc;
+  box-shadow: 2px 3px 15px #ccc;
   color: white;
   text-align: center;
-  font-size: 24px;
-  line-height: 150px;
+  font-size: 32px;
+  line-height: 120px;
   left: 50%;
   transform: translateX(-50%);
 }
 .firstView li a.doneDiv {
   transition: 0.3s all;
-  top: 50px;
+  top: 70px;
   background-color: #2aabd2;
 }
 .firstView li a.wantDiv {
   transition: 0.4s all;
-  top: 240px;
+  top: 260px;
   background-color: #5cb85c;
 }
 .firstView li a.zengDiv {
   transition: 0.5s all;
-  top: 430px;
+  top: 450px;
   background-color: #f0ad4e;
+}
+.firstView li a .firstViewIcon {
+  position: absolute;
+  top: -7%;
+  right: -7%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #cb1515;
+  border: 2px solid #fff;
+  box-shadow: 2px 2px 6px #ccc;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
 }
 .mainList {
   padding-top: 60px;
@@ -125,15 +153,17 @@ a {
 .mainList ul.wantList .listOther span {
   background-color: #5cb85c;
 }
+.mainList ul.doneList .listOther span {
+  background-color: #2aabd2;
+}
 .mainList ul li {
   width: 100%;
-  height: 140px;
+  height: 100px;
   margin-bottom: 20px;
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 15px;
-  box-shadow: 3px 6px 15px #ccc;
-  overflow: auto;
+  box-shadow: 1px 2px 18px #ddd;
 }
 .mainList ul li .listMain {
   width: 80%;
@@ -142,12 +172,14 @@ a {
 }
 .mainList ul li .listMain .listContent {
   width: 100%;
-  height: 80px;
+  height: 55px;
+  padding-bottom: 5px;
   overflow: hidden;
-  padding-bottom: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .mainList ul li .listMain .listDate {
-  font-size: 12px;
+  font-size: 14px;
   text-align: right;
 }
 .mainList ul li .listOther {
@@ -161,9 +193,9 @@ a {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #2aabd2;
+  background: url("../images/deleteIcon.png") no-repeat center;
   box-shadow: 1px 3px 3px #ccc;
-  margin: 40px auto 0;
+  margin: 20px auto 0;
 }
 .mainList .zengList {
   display: none;
@@ -175,7 +207,8 @@ a {
   padding-top: 50px;
 }
 .mainList .zengList .editViewADD form textarea {
-  font-size: 14px;
+  font-family: "Microsoft YaHei UI", sans-serif;
+  font-size: 18px;
   border: 0;
   outline: 0;
   resize: none;
@@ -188,7 +221,8 @@ a {
   padding: 10px;
 }
 .mainList .zengList .editViewADD form input {
-  font-size: 14px;
+  font-size: 18px;
+  font-family: "Microsoft YaHei UI", sans-serif;
   border: 0;
   outline: 0;
   display: block;
@@ -203,15 +237,18 @@ a {
   background-color: #f0ad4e;
   color: #fff;
 }
-.mainList .zengList .editViewADD form > div {
-  font-size: 14px;
-  text-align: center;
-}
-.mainList .zengList .editViewADD form > div input {
-  padding-right: 10px;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
+.mainList .zengList .editViewADD form .catagory {
+  font-size: 18px;
+  font-family: "Microsoft YaHei UI", sans-serif;
+  border: 0;
+  outline: 0;
+  display: block;
+  width: 90%;
+  height: 40px;
+  border-radius: 15px;
+  text-indent: 10px;
+  margin: 20px auto;
+  line-height: 40px;
 }
 .editView {
   display: none;
@@ -222,9 +259,14 @@ a {
   top: 0;
   bottom: 0;
   padding-top: 150px;
+  z-index: 99;
+}
+.editView form label {
+  display: none;
 }
 .editView form textarea {
-  font-size: 14px;
+  font-family: "Microsoft YaHei UI", sans-serif;
+  font-size: 18px;
   border: 0;
   outline: 0;
   resize: none;
@@ -237,7 +279,8 @@ a {
   padding: 10px;
 }
 .editView form input {
-  font-size: 14px;
+  font-size: 18px;
+  font-family: "Microsoft YaHei UI", sans-serif;
   border: 0;
   outline: 0;
   display: block;
@@ -249,16 +292,20 @@ a {
   line-height: 40px;
 }
 .editView form input.editSubmit {
+  background-color: #aaa;
   color: #fff;
 }
-.editView form > div {
-  font-size: 14px;
-  text-align: center;
-}
-.editView form > div input {
-  padding-right: 10px;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
+.editView form .catagory {
+  font-size: 18px;
+  font-family: "Microsoft YaHei UI", sans-serif;
+  border: 0;
+  outline: 0;
+  display: block;
+  width: 90%;
+  height: 40px;
+  border-radius: 15px;
+  text-indent: 10px;
+  margin: 20px auto;
+  line-height: 40px;
 }
 /*# sourceMappingURL=myTodolist.css.map */

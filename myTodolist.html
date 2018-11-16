@@ -5,7 +5,7 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="assert/css/myTodolist.css?version=0.0.1">
+  <link rel="stylesheet" href="assert/css/myTodolist.css?version=0.0.2">
   <!--<link rel="stylesheet" href="assert/plugins/css/bootstrap.min.css">-->
   <!--<link rel="stylesheet" href="https://at.alicdn.com/t/font_832418_iig9uckp5ta.css">-->
   <title>测试</title>
@@ -17,12 +17,20 @@
 <body>
 
 <!--第一界面-->
-<ul class="firstView">
+<ul class="firstView clearfix">
   <li>
-    <a class="doneDiv" href="javascript:void(0);">DONE</a>
+    <a class="doneDiv" href="javascript:void(0);">
+      DONE
+      <span class="firstViewIcon">12</span>
+    </a>
+
   </li>
   <li>
-    <a class="wantDiv" href="javascript:void(0);">WANT</a>
+    <a class="wantDiv" href="javascript:void(0);">
+      WANT
+      <span class="firstViewIcon">3</span>
+    </a>
+
   </li>
   <li>
     <a class="zengDiv" href="javascript:void(0);">ADD</a>
@@ -30,64 +38,29 @@
 </ul>
 <!--底部功能按钮-->
 <div class="footerBar">
-  <a class="backFirstView" href="javascript:void(0);">返回</a>
+  <div class="backFirstView" >返回F</div>
+  <div class="backListView" >返回L</div>
 </div>
 
 <!--列表页-->
 <div class="mainList">
   <ul class="doneList">
-    <li class="clearfix">
-      <div class="listOther">
-        <span></span>
-      </div>
-      <div class="listMain">
-        <p class="listContent">汪海林编剧diss的真
-          痛快，像蔡徐坤、迪丽热巴和吴亦凡这种玩
-          数据的三流水平的明星，就应该离开娱乐圈，他们没
-        </p>
-        <p class="listDate">2018-10-10</p>
-      </div>
 
-    </li>
-    <li class="clearfix">
-      <div class="listOther">
-        <span></span>
-      </div>
-      <div class="listMain">
-        <p class="listContent">
-          buzhidmasdfdsfd
-        </p>
-        <p class="listDate">2018-10-10</p>
-      </div>
-
-
-    </li>
   </ul>
   <ul class="wantList">
-    <li class="clearfix">
-      <div class="listOther">
-        <span></span>
-      </div>
-      <div class="listMain">
-        <p class="listContent">ery-读取form表单中的所有数据列表
-        </p>
-        <p class="listDate">2019-10-10</p>
-      </div>
 
 
-    </li>
+    <!--<li class="clearfix">-->
+      <!--<div class="listOther">-->
+        <!--<span></span>-->
+      <!--</div>-->
+      <!--<div class="listMain">-->
+        <!--<p class="listContent">ery-读取form表单中的所有数据列表-->
+        <!--</p>-->
+        <!--<p class="listDate">2019-10-10</p>-->
+      <!--</div>-->
 
-    <li class="clearfix">
-      <div class="listOther">
-        <span></span>
-      </div>
-      <div class="listMain">
-        <p class="listContent">ery-读取form表单中的所有数据列表
-        </p>
-        <p class="listDate">2019-10-10</p>
-      </div>
-
-    </li>
+    <!--</li>-->
   </ul>
   <ul class="zengList">
     <li>
@@ -96,12 +69,12 @@
         <form action="">
           <textarea type="text" placeholder="输入事项" name="content"></textarea>
           <input type="date"  name="date">
-          <div>
-            <input name="catagory" type="radio"  checked="checked" value="DONE">DONE
-            <input name="catagory" type="radio" value="WANT">WANT
-          </div>
+          <select class="catagory">
+            <option value="done">已做</option>
+            <option value="want">未做</option>
+          </select>
 
-          <input id="zeng" class="editSubmit" type="submit" value="可以了">
+          <input id="zeng" class="editSubmit" type="submit" value="确认增加">
         </form>
       </div>
     </li>
@@ -115,12 +88,12 @@
     <label for=""></label>
     <textarea type="text" placeholder="输入事项" name="content"></textarea>
     <input type="date"  name="date">
-    <div>
-      <input name="catagory" type="radio"  checked="checked" value="DONE">DONE
-      <input name="catagory" type="radio" value="WANT">WANT
-    </div>
+    <select class="catagory">
+      <option value="done">已做</option>
+      <option value="want">未做</option>
+    </select>
 
-    <input id="edit" class="editSubmit" type="submit" value="可以了">
+    <input id="edit" class="editSubmit" type="submit" value="确认修改">
   </form>
 </div>
 
@@ -132,9 +105,32 @@
 
   ;(function () {
 
+    // 两个返回按钮的切换
+    function switchBackBtn(flag1,flag2) {
+      $('.footerBar').show()
+      flag1?$('.backFirstView').show():$('.backFirstView').hide();
+      flag2?$('.backListView').show():$('.backListView').hide();
+    }
 
 
-    // 返回主页界面加载
+    //控制角标函数 模块名，数量
+    function firstViewIconHandle(ele,num) {
+
+        if(num==0){
+          ele.hide()
+        }else {
+          ele.show()
+          ele.html(num)
+        }
+
+    }
+
+
+    // 默认第一次加载
+    doBombSelectCountNums()
+
+
+   // 返回主页界面加载
     function backFistView() {
 
       $('.firstView li a').css({
@@ -143,28 +139,41 @@
         transform: 'translateX(-50%)',
         opacity: '1',
         borderRadius: '20px',
-        height: 150,
-        width: '70%',
-        lineHeight: '150px'
+        height: '120px',
+        width: '60%',
+        fontSize:'32px',
+        lineHeight: '120px'
       })
 
+      $('.doneDiv').css('top', '70px')
+      $('.wantDiv').css('top', '260px')
+      $('.zengDiv').css('top', '450px')
 
-      $('.doneDiv').css('top', '50px')
-      $('.wantDiv').css('top', '240px')
-      $('.zengDiv').css('top', '430px')
-
-      // 隐藏列表内容
+      // 隐藏第二界面列表内容
       $('.mainList>ul').hide()
-
       $('.footerBar').hide()
 
+      // 显示第一界面内容
       $('.firstView li').css('display', 'block')
+
+      doBombSelectCountNums()
 
     }
 
+    // 用来标识点击的是哪儿个项目 doneDiv,wantDiv,zengDiv
+    var itemFlag=''
+
     // 返回按钮
     $('.backFirstView').click(function () {
+      
+      switchBackBtn(false,false)
       backFistView()
+    })
+    $('.backListView').click(function () {
+
+      switchBackBtn(true,false)
+      $('.editView').hide()
+      loadList(itemFlag)
     })
 
 
@@ -198,18 +207,20 @@
     // 加载列表界面
     function loadList(className) {
 
-      doBombSelectAll()
+      itemFlag=className
+      
+      console.log(itemFlag)
+
+      doBombSelectAll(itemFlag.replace('Div',''))
 
       var tempName = className.replace('Div', 'List')
 
+      $('.' + tempName).slideUp(0)
       $('.' + tempName).slideDown(500)
-
-      // 显示底部bar
-      $('.footerBar').show()
     }
 
 
-// 切换不同view动画
+    // 切换不同view动画
     function switchView(ele) {
       ele.css({
         position: 'fixed',
@@ -217,6 +228,7 @@
         top: 0,
         width: '100%',
         height: '50px',
+        fontSize:'24px',
         lineHeight: '50px',
         borderRadius: 0,
         transform: 'translateX(0)'
@@ -232,70 +244,32 @@
 
 
     $('.firstView').delegate('li>a', 'click', function () {
-
       // 切换动画
       switchView($(this))
-
       // 加载对应list
       loadList($(this).attr('class'))
 
-    })
 
-    // 显示编辑页面
-    // $('.listMain').click(function () {
-    //
-    //
-    //
-    // })
+      switch(itemFlag){
+        case 'doneDiv':$('.footerBar>div').css('background-color','#2aabd2');break;
+        case 'wantDiv':$('.footerBar>div').css('background-color','#5cb85c');break;
+        case 'zengDiv':$('.footerBar>div').css('background-color','#f0ad4e');break;
+      }
+
+      // $('.footerBar>div').css('background-color','#5cb85c');
+
+      switchBackBtn(true,false)
+
+    })
 
 
     $('.mainList').delegate('.listMain','click',function () {
+
       loadEditer($(this))
-
       $('.editView').show(500)
+      switchBackBtn(false,true)
+
     })
-
-
-
-
-    // 编辑页面form
-    $('#edit').click(function() {
-      
-      console.log('edididiididd')
-
-      var parentForm=$(this).parent()
-
-      var listData={
-        id:$('.editView label').html(),
-        content:$('.editView textarea').val(),
-        date:$('.editView input[name="date"]').val()
-      }
-
-      if(doBombUpdate(listData)){
-        alert('修改成功')
-      }else{
-        alert('没改成')
-      }
-
-      // console.log(doBombUpdate(listData))
-
-      $('.editView').hide()
-      return false;
-
-    });
-
-
-
-    // 新增页面form
-    $('#zeng').click(function() {
-
-      pushEditer()
-
-      $('.editView').hide()
-      backFistView()
-      return false;
-
-    });
 
 
     // 载入编辑页面，thisEle是listMain
@@ -304,13 +278,42 @@
       var content=thisEle.children('.listContent').html()
       var date=thisEle.children('.listDate').html()
 
+      //日期，内容，id，种类
       $('.editView input[name="date"]').val(date)
 
       $('.editView textarea').val(content)
 
       $('.editView label').html(thisEle.data('id'))
 
+      $('.editView .catagory').val(itemFlag.replace('Div',''))
+
     }
+
+    // 编辑页面提交
+    $('#edit').click(function() {
+
+      var listData={
+        id:$('.editView label').html(),
+        content:$('.editView textarea').val(),
+        date:$('.editView input[name="date"]').val(),
+        catagory:$('.editView .catagory').val(),
+      }
+
+      if(doBombUpdate(listData)){
+        alert('修改成功')
+      }else{
+        alert('没改成')
+      }
+
+
+      $('.editView').hide()
+      switchBackBtn(true,false)
+
+      // 去除默认form提交事件
+      return false;
+
+    });
+
 
     //新增事项
     function pushEditer() {
@@ -318,72 +321,113 @@
       var content=$('.editViewADD textarea').val()
       var date=$('.editViewADD input[name="date"]').val()
 
-
       var listData={
         content:content,
-        date:date
+        date:date,
+        catagory:$('.editViewADD .catagory').val(),
       }
-
       // 数据库增加操作
       doBombZeng(listData)
-
     }
 
+    // 新增页面提交
+    $('#zeng').click(function() {
 
-    function doBombZeng(listData) {
+      pushEditer()
 
+      $('.editView').hide()
+      backFistView()
+
+      $('.backFirstView').hide()
+      switchBackBtn(false,false)
+
+      return false;
+    });
+
+
+    // 删除按钮事件
+    $('.mainList').delegate('.listOther>span','click',function () {
+
+      doBombDelete($(this))
+    })
+
+
+    // ========================数据库操作==========================
+    function initBomb() {
       // 用自己的key初始化
       Bmob.initialize("a1ab380a6d5d68ab035bba846565d26c", "a24e873ac9ab76aa5002a7361c61ae11");
+      return Bmob.Query('myTodolist');
 
-      var query = Bmob.Query('myTodolist');
+    }
+    // 新增一条
+    function doBombZeng(listData) {
+
+      var query=initBomb()
 
       query.set('content', listData.content)
       query.set('date', listData.date)
+      query.set('catagory',listData.catagory)
 
       query.save().then(function (res) {
-        // console.log(res)
-        doBombSelectAll()
+        // doBombSelectAll()
       }).catch(function (err) {
-        // console.log(err)
       })
 
     }
 
-    // 查询所有
-    function doBombSelectAll() {
+    // 查询所有(条件查询)
+    function doBombSelectAll(catagory) {
 
-      // 用自己的key初始化
-      Bmob.initialize("a1ab380a6d5d68ab035bba846565d26c", "a24e873ac9ab76aa5002a7361c61ae11");
+      var query=initBomb()
 
-      var query = Bmob.Query('myTodolist');
-
-      query.order("date");
+      query.equalTo('catagory','==',catagory)
+      query.order("-date");
 
       query.find().then(function (res){
-        // console.log(res)
         productList(res)
       }).catch(function (err){
-        // console.log(err)
       })
 
     }
 
-    // 查询所有
+    // 查询所有(分类查询个数)
+    function doBombSelectCountNums() {
+
+      var query1=initBomb()
+      var query2=initBomb()
+
+      query1.equalTo('catagory','==','done')
+      query1.count().then(function (res){
+        console.log(res)
+        firstViewIconHandle($('.doneDiv .firstViewIcon'),res)
+      }).catch(function (err){
+      })
+
+      query2.equalTo('catagory','==','want')
+      query2.count().then(function (res){
+        console.log(res)
+        firstViewIconHandle($('.wantDiv .firstViewIcon'),res)
+      }).catch(function (err){
+      })
+
+    }
+
+
+    // 更新
     function doBombUpdate(listData) {
-
-      console.log('bommdgfd')
-
-      // 用自己的keyUpdate初始化
-      Bmob.initialize("a1ab380a6d5d68ab035bba846565d26c", "a24e873ac9ab76aa5002a7361c61ae11");
-
-      var query = Bmob.Query('myTodolist');
+      var query=initBomb()
 
       query.set('id', listData.id)
       query.set('content', listData.content)
       query.set('date', listData.date)
+      query.set('catagory',listData.catagory)
 
       query.save().then(function (res){
         console.log(res)
+
+        // 更新成功刷新
+        loadList(itemFlag)
+
       }).catch(function (err){
         console.log(err)
       })
@@ -392,7 +436,21 @@
 
     }
 
+    // 删除
+    function doBombDelete(ele) {
+      var query=initBomb()
 
+      var deleteId=ele.parent().siblings().data('id');
+
+      query.destroy(deleteId).then(function (res){
+        console.log(res)
+        ele.parent().parent().remove()
+
+      }).catch(function (err){
+        console.log(err)
+      })
+
+    }
 
   }())
   

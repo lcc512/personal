@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a639df00-a585-4ec4-aec0-ce559f8befe1" name="Default" comment="1，测试更新缓存功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assert/css/myTodolist.css" beforeDir="false" afterPath="$PROJECT_DIR$/assert/css/myTodolist.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assert/css/myTodolist.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assert/css/myTodolist.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assert/css/myTodolist.less" beforeDir="false" afterPath="$PROJECT_DIR$/assert/css/myTodolist.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myTodolist.html" beforeDir="false" afterPath="$PROJECT_DIR$/myTodolist.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -17,34 +20,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="myTodolist.less" pinned="false" current-in-tab="false">
+      <file leaf-file-name="myTodolist.less" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assert/css/myTodolist.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7600">
-              <caret line="304" column="9" selection-start-line="304" selection-start-column="9" selection-end-line="304" selection-end-column="9" />
+            <state relative-caret-position="725">
+              <caret line="155" column="8" lean-forward="true" selection-start-line="155" selection-start-column="8" selection-end-line="155" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myTodolist.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="myTodolist.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myTodolist.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="320" lean-forward="true" selection-start-line="320" selection-end-line="320" />
+            <state relative-caret-position="250">
+              <caret line="116" column="19" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
               <folding>
-                <element signature="n#ul#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#1;n#ul#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#ul#0;n#div#1;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#ul#1;n#div#1;n#body#0;n#html#0;n#!!top" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -63,6 +56,13 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>box-sizing</find>
+      <find>span</find>
+      <find>返回</find>
+      <find>foot</find>
+      <find>z-index</find>
+      <find>删除</find>
+      <find>edits</find>
+      <find>label</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -83,8 +83,8 @@
         <option value="$PROJECT_DIR$/assert/css/todolist.less" />
         <option value="$PROJECT_DIR$/assert/css/myWeather.less" />
         <option value="$PROJECT_DIR$/myWeather.html" />
-        <option value="$PROJECT_DIR$/assert/css/myTodolist.less" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/assert/css/myTodolist.less" />
         <option value="$PROJECT_DIR$/myTodolist.html" />
       </list>
     </option>
@@ -109,9 +109,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="611" />
-    <option name="width" value="996" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="518" />
+    <option name="width" value="1089" />
     <option name="height" value="867" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -206,25 +206,25 @@
     </option>
   </component>
   <component name="RunManager" selected="JavaScript Debug.myTodolist.html">
+    <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63341/personalWeb/index.html" />
     <configuration name="myTodolist.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63341/personalWeb/myTodolist.html" />
-    <configuration name="myWeather.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/personalWeb/myWeather.html" />
     <configuration name="newsList.html (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63341/personalWeb/newsList.html" />
     <configuration name="newsList.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/personalWeb/newsList.html" />
     <configuration name="todolistMain.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63341/personalWeb/todolistMain.html" />
     <list>
-      <item itemvalue="JavaScript Debug.myWeather.html" />
       <item itemvalue="JavaScript Debug.newsList.html" />
       <item itemvalue="JavaScript Debug.newsList.html (1)" />
       <item itemvalue="JavaScript Debug.todolistMain.html" />
       <item itemvalue="JavaScript Debug.myTodolist.html" />
+      <item itemvalue="JavaScript Debug.index.html" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JavaScript Debug.myTodolist.html" />
+        <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JavaScript Debug.todolistMain.html" />
         <item itemvalue="JavaScript Debug.newsList.html (1)" />
         <item itemvalue="JavaScript Debug.newsList.html" />
-        <item itemvalue="JavaScript Debug.myWeather.html" />
       </list>
     </recent_temporary>
   </component>
@@ -281,6 +281,8 @@
       <workItem from="1542069465591" duration="2020000" />
       <workItem from="1542096934958" duration="2839000" />
       <workItem from="1542175425313" duration="8983000" />
+      <workItem from="1542331289952" duration="3558000" />
+      <workItem from="1542334879419" duration="16114000" />
     </task>
     <task id="LOCAL-00001" summary="缩小banner高度">
       <created>1536626513063</created>
@@ -349,13 +351,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92352000" />
+    <option name="totallyTimeSpent" value="112024000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="611" y="0" width="996" height="867" extended-state="0" />
+    <frame x="518" y="0" width="1089" height="867" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.23681378" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.23603794" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -389,6 +391,11 @@
     <MESSAGE value="1，整理代码，去除多余引用，去除bootstrape引用，做了相应调整" />
     <MESSAGE value="1，测试更新缓存功能" />
     <option name="LAST_COMMIT_MESSAGE" value="1，测试更新缓存功能" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/assert/css/myWeather.less">
@@ -695,29 +702,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assert/css/myTodolist.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7600">
-          <caret line="304" column="9" selection-start-line="304" selection-start-column="9" selection-end-line="304" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+        <state relative-caret-position="275">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myTodolist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="320" lean-forward="true" selection-start-line="320" selection-end-line="320" />
+        <state relative-caret-position="250">
+          <caret line="116" column="19" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
           <folding>
-            <element signature="n#ul#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#1;n#ul#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#ul#0;n#div#1;n#body#0;n#html#0;n#!!top" />
             <element signature="n#ul#1;n#div#1;n#body#0;n#html#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assert/css/myTodolist.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="155" column="8" lean-forward="true" selection-start-line="155" selection-start-column="8" selection-end-line="155" selection-end-column="8" />
         </state>
       </provider>
     </entry>
