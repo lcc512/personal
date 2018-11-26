@@ -8,7 +8,7 @@
 @doneColor: #2aabd2;
 @wantColor: #5cb85c;
 @zengColor: #f0ad4e;
-@iconColor:#cb1515;
+@iconColor: #cb1515;
 
 //清空默认样式
 /* 清除内外边距 */
@@ -41,6 +41,15 @@ body {
   height: 100%;
   color: @mainFontColor;
   background-color: @mainBackColor;
+  .currentUser{
+    position: fixed;
+    left: 0;
+    top: 0;
+    font-size: @littelFontSize;
+    a{
+      text-decoration: underline
+    }
+  }
 }
 
 ul {
@@ -117,21 +126,58 @@ a {
         transition: 0.3s all;
         top: 70px;
         background-color: @doneColor;
+        animation: demoDone 2s infinite;
+
       }
       &.wantDiv {
         transition: 0.4s all;
         top: 260px;
         background-color: @wantColor;
+        animation: demoWant 2s infinite;
       }
       &.zengDiv {
         transition: 0.5s all;
         top: 450px;
         background-color: @zengColor;
+        animation: demoZeng 2s infinite;
       }
 
+      @keyframes demoDone {
+        0% {
+          background-color: @doneColor;
+        }
+        50% {
+          background-color: #6fc7e1;
+        }
+        100% {
+          background-color: @doneColor;
+        }
+      }
+      @keyframes demoWant {
+        0% {
+          background-color: @wantColor;
+        }
+        50% {
+          background-color: #9dd79d;
+        }
+        100% {
+          background-color: @wantColor;
+        }
+      }
+      @keyframes demoZeng {
+        0% {
+          background-color: @zengColor;
+        }
+        50% {
+          background-color: #f5cc92;
+        }
+        100% {
+          background-color: @zengColor;
+        }
+      }
 
       //角标
-      .firstViewIcon{
+      .firstViewIcon {
         position: absolute;
         top: -7%;
         right: -7%;
@@ -147,8 +193,6 @@ a {
         line-height: 30px;
       }
     }
-
-
 
   }
 }
@@ -373,6 +417,106 @@ a {
       margin: 20px auto;
 
       line-height: 40px;
+
+    }
+
+  }
+
+}
+
+/*
+以下登录注册界面
+ */
+
+//主界面外框
+.mainViewLoginSign{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+
+//左右滑动登录注册
+.loginSignView {
+  width: 200%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 0.8s all;
+
+  li {
+    width: 50%;
+    height: 100%;
+    padding-top: 50px;
+    float: left;
+
+
+    h2 {
+      text-align: center;
+      margin-bottom: 100px;
+    }
+
+    input, a {
+      font-size: @mainFontSize;
+      font-family: "Microsoft YaHei UI", sans-serif;
+      //border: 0;
+      outline: 0;
+
+      display: block;
+      width: 90%;
+      height: 40px;
+      border-radius: 15px;
+      text-indent: 10px;
+      margin: 20px auto;
+      line-height: 40px;
+    }
+
+    &.login {
+
+      //background-color: #2aabd2;
+
+      a {
+        text-align: center;
+        &.loginBtn {
+          width: 50%;
+          background-color: @mainColor;
+          color: #fff;
+
+        }
+        &.toSignBtn {
+          width: 50%;
+          background-color: transparent;
+          border-bottom: 2px solid @mainColor;
+          font-size: @littelFontSize;
+        }
+      }
+
+    }
+
+    &.signup {
+
+      //background-color: #5cb85c;
+
+      a {
+
+        text-align: center;
+        &.toLoginBtn {
+          width: 50%;
+          background-color: transparent;
+          border-bottom: 2px solid @mainColor;
+          font-size: @littelFontSize;
+        }
+        &.signBtn {
+          width: 50%;
+          background-color: @mainColor;
+          color: #fff;
+
+        }
+      }
 
     }
 

@@ -5,7 +5,7 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="assert/css/myTodolist.css?version=0.0.2">
+  <link rel="stylesheet" href="assert/css/myTodolist.css?version=0.0.3">
   <!--<link rel="stylesheet" href="assert/plugins/css/bootstrap.min.css">-->
   <!--<link rel="stylesheet" href="https://at.alicdn.com/t/font_832418_iig9uckp5ta.css">-->
   <title>测试</title>
@@ -15,20 +15,25 @@
 
 </head>
 <body>
+<div class="currentUser">
+  用户:
+  <span></span>
+  <a id="loginOut" href="javascript:void(0);">注销关闭</a>
+</div>
 
 <!--第一界面-->
 <ul class="firstView clearfix">
   <li>
     <a class="doneDiv" href="javascript:void(0);">
       DONE
-      <span class="firstViewIcon">12</span>
+      <span class="firstViewIcon"></span>
     </a>
 
   </li>
   <li>
     <a class="wantDiv" href="javascript:void(0);">
       WANT
-      <span class="firstViewIcon">3</span>
+      <span class="firstViewIcon"></span>
     </a>
 
   </li>
@@ -99,11 +104,40 @@
 
 
 <script src="assert/plugins/js/jquery-1.12.4.min.js"></script>
+<script src="assert/plugins/js/jquery.cookie.js"></script>
 <script src="assert/plugins/js/Bmob-1.6.5.min.js"></script>
 <script>
 
 
   ;(function () {
+
+
+    // 检测是否登录，否则跳转到登录页
+    if($.cookie('username') == null){
+      alert('请登录后操作')
+      window.location.href='./myTodolistLogin.html';
+    }
+
+
+    //读取已登录的cookie
+    function readCookie() {
+      $('.currentUser span').html($.cookie('username'))
+    }
+
+
+    // 删除已登录的cookie
+    function deleteCookie() {
+      $.removeCookie('username');
+    }
+
+    // 注销
+    $('#loginOut').click(function () {
+      deleteCookie()
+      window.opener=null;
+      window.open('','_self');
+      window.close();
+    })
+
 
     // 两个返回按钮的切换
     function switchBackBtn(flag1,flag2) {
@@ -275,6 +309,8 @@
     // 载入编辑页面，thisEle是listMain
     function loadEditer(thisEle) {
 
+
+
       var content=thisEle.children('.listContent').html()
       var date=thisEle.children('.listDate').html()
 
@@ -297,6 +333,7 @@
         content:$('.editView textarea').val(),
         date:$('.editView input[name="date"]').val(),
         catagory:$('.editView .catagory').val(),
+        username:$.cookie('username')
       }
 
       if(doBombUpdate(listData)){
@@ -325,6 +362,7 @@
         content:content,
         date:date,
         catagory:$('.editViewADD .catagory').val(),
+        username:$.cookie('username')
       }
       // 数据库增加操作
       doBombZeng(listData)
@@ -367,6 +405,7 @@
       query.set('content', listData.content)
       query.set('date', listData.date)
       query.set('catagory',listData.catagory)
+      query.set('username',listData.username)
 
       query.save().then(function (res) {
         // doBombSelectAll()
@@ -381,6 +420,7 @@
       var query=initBomb()
 
       query.equalTo('catagory','==',catagory)
+      query.equalTo('username','==',$.cookie('username'))
       query.order("-date");
 
       query.find().then(function (res){
@@ -393,10 +433,14 @@
     // 查询所有(分类查询个数)
     function doBombSelectCountNums() {
 
+      // 加载已登录用户名
+      readCookie()
+
       var query1=initBomb()
       var query2=initBomb()
 
       query1.equalTo('catagory','==','done')
+      query1.equalTo('username','==',$.cookie('username'))
       query1.count().then(function (res){
         console.log(res)
         firstViewIconHandle($('.doneDiv .firstViewIcon'),res)
@@ -404,11 +448,14 @@
       })
 
       query2.equalTo('catagory','==','want')
+      query2.equalTo('username','==',$.cookie('username'))
       query2.count().then(function (res){
         console.log(res)
         firstViewIconHandle($('.wantDiv .firstViewIcon'),res)
       }).catch(function (err){
       })
+
+
 
     }
 
@@ -421,6 +468,7 @@
       query.set('content', listData.content)
       query.set('date', listData.date)
       query.set('catagory',listData.catagory)
+      query.set('username',listData.username)
 
       query.save().then(function (res){
         console.log(res)

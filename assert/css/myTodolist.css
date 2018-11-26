@@ -45,6 +45,15 @@ body {
   color: #666;
   background-color: #fff;
 }
+body .currentUser {
+  position: fixed;
+  left: 0;
+  top: 0;
+  font-size: 14px;
+}
+body .currentUser a {
+  text-decoration: underline;
+}
 ul {
   list-style: none;
 }
@@ -116,16 +125,52 @@ a {
   transition: 0.3s all;
   top: 70px;
   background-color: #2aabd2;
+  animation: demoDone 2s infinite;
 }
 .firstView li a.wantDiv {
   transition: 0.4s all;
   top: 260px;
   background-color: #5cb85c;
+  animation: demoWant 2s infinite;
 }
 .firstView li a.zengDiv {
   transition: 0.5s all;
   top: 450px;
   background-color: #f0ad4e;
+  animation: demoZeng 2s infinite;
+}
+@keyframes demoDone {
+  0% {
+    background-color: #2aabd2;
+  }
+  50% {
+    background-color: #6fc7e1;
+  }
+  100% {
+    background-color: #2aabd2;
+  }
+}
+@keyframes demoWant {
+  0% {
+    background-color: #5cb85c;
+  }
+  50% {
+    background-color: #9dd79d;
+  }
+  100% {
+    background-color: #5cb85c;
+  }
+}
+@keyframes demoZeng {
+  0% {
+    background-color: #f0ad4e;
+  }
+  50% {
+    background-color: #f5cc92;
+  }
+  100% {
+    background-color: #f0ad4e;
+  }
 }
 .firstView li a .firstViewIcon {
   position: absolute;
@@ -307,5 +352,75 @@ a {
   text-indent: 10px;
   margin: 20px auto;
   line-height: 40px;
+}
+/*
+以下登录注册界面
+ */
+.mainViewLoginSign {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.loginSignView {
+  width: 200%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 0.8s all;
+}
+.loginSignView li {
+  width: 50%;
+  height: 100%;
+  padding-top: 50px;
+  float: left;
+}
+.loginSignView li h2 {
+  text-align: center;
+  margin-bottom: 100px;
+}
+.loginSignView li input,
+.loginSignView li a {
+  font-size: 18px;
+  font-family: "Microsoft YaHei UI", sans-serif;
+  outline: 0;
+  display: block;
+  width: 90%;
+  height: 40px;
+  border-radius: 15px;
+  text-indent: 10px;
+  margin: 20px auto;
+  line-height: 40px;
+}
+.loginSignView li.login a {
+  text-align: center;
+}
+.loginSignView li.login a.loginBtn {
+  width: 50%;
+  background-color: #0099CC;
+  color: #fff;
+}
+.loginSignView li.login a.toSignBtn {
+  width: 50%;
+  background-color: transparent;
+  border-bottom: 2px solid #0099CC;
+  font-size: 14px;
+}
+.loginSignView li.signup a {
+  text-align: center;
+}
+.loginSignView li.signup a.toLoginBtn {
+  width: 50%;
+  background-color: transparent;
+  border-bottom: 2px solid #0099CC;
+  font-size: 14px;
+}
+.loginSignView li.signup a.signBtn {
+  width: 50%;
+  background-color: #0099CC;
+  color: #fff;
 }
 /*# sourceMappingURL=myTodolist.css.map */
