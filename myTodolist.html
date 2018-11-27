@@ -18,7 +18,7 @@
 <div class="currentUser">
   用户:
   <span></span>
-  <a id="loginOut" href="javascript:void(0);">注销关闭</a>
+  <a id="loginOut" href="javascript:void(0);">注销</a>
 </div>
 
 <!--第一界面-->
@@ -133,9 +133,10 @@
     // 注销
     $('#loginOut').click(function () {
       deleteCookie()
-      window.opener=null;
-      window.open('','_self');
-      window.close();
+      if(confirm('确认退出？')){
+        window.location.href='./myTodolistLogin.html';
+      }
+
     })
 
 

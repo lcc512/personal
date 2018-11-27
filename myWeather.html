@@ -183,21 +183,21 @@
       weatherClassList['雨夹雪'] = 'iconfont icon-baitian-xiaoxue'
 
       // 渲染小时天气-----------------------
-      weatherListHourly.forEach(function (item, index) {
-
-        //分割日期取出时间
-        var hourly = item['date'].split(' ')[1]
-
-        var liTemp = $('<li><div class="list-week">\n' +
-          '        <span>' + hourly + '</span>\n' +
-          '      </div>\n' +
-          '      <div class="list-temp">\n' +
-          '        <span class="nums">' + item['tmp'] + '°</span>\n' +
-          '        <span class="tianqi">' + item['cond']['txt'] + '</span><span class="' + weatherClassList[item['cond']['txt']] + '"></span>' +
-          '      </div></li>')
-
-        $tq_listHourly.append(liTemp)
-      })
+      // weatherListHourly.forEach(function (item, index) {
+      //
+      //   //分割日期取出时间
+      //   var hourly = item['date'].split(' ')[1]
+      //
+      //   var liTemp = $('<li><div class="list-week">\n' +
+      //     '        <span>' + hourly + '</span>\n' +
+      //     '      </div>\n' +
+      //     '      <div class="list-temp">\n' +
+      //     '        <span class="nums">' + item['tmp'] + '°</span>\n' +
+      //     '        <span class="tianqi">' + item['cond']['txt'] + '</span><span class="' + weatherClassList[item['cond']['txt']] + '"></span>' +
+      //     '      </div></li>')
+      //
+      //   $tq_listHourly.append(liTemp)
+      // })
 
 
       // 渲染每日天气
