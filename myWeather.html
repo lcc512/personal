@@ -5,6 +5,7 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords" content="天气预报，个人练习，和风平台数据">
   <link rel="stylesheet" href="assert/css/myWeather.css?version=0.0.7">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_832418_iig9uckp5ta.css">
   <title>测试</title>
@@ -15,72 +16,89 @@
 </head>
 <body>
 
+<div content="main">
+  <!--上面-->
+  <div class="tq-banner">
 
-<!--上面-->
-<div class="tq-banner">
-  <p class="main">--</p>
-  <p class="location">--</p>
-  <p class="temp">--°</p>
-  <p class="wind"></p>
-  <p class="qlty">----</p>
+    <div class="arrow-btn">
+      <a href="javascript:void(0);" class="arrow-left">《</a>
+      <a href="javascript:void(0);" class="arrow-right">》</a>
+    </div>
+
+    <div class="title">
+      <span class="title-name">☀</span>
+      <span class="title-temp">25°</span>
+    </div>
+    <div class="location-main">
+      <p class="location">地区</p>
+      <a href="javascript:void(0);" class="addNewCity-btn">+</a>
+    </div>
+
+    <p class="wind">风力</p>
+    <p class="aqi">空气指数</p>
+    <p class="qlty">优良</p>
+
+    <!--<p class="main">&#45;&#45;</p>-->
 
 
-  <!--详细按钮-->
-  <div class="detailBtn">
-    <a id="doit" href="javascript:void(0);" style="margin-top: 5px;">详细</a>
+    <!--详细按钮-->
+    <!--<div class="detailBtn">-->
+    <!--<a id="doit" href="javascript:void(0);" style="margin-top: 5px;">详细</a>-->
+    <!--</div>-->
+    <p class="updateLoc">update:20190121</p>
+
+    <!--详细内容-->
+    <!--<div id="login" class="detailContent">-->
+    <!--<p class="ptitle">空气概况</p>-->
+    <!--<p class="air_txt">&#45;&#45;</p>-->
+
+    <!--<p class="ptitle">舒适概况</p>-->
+    <!--<p class="comf_txt">&#45;&#45;</p>-->
+
+    <!--<p class="ptitle">洗车概况</p>-->
+    <!--<p class="cw_txt">&#45;&#45;</p>-->
+
+    <!--<p class="ptitle">穿衣概况</p>-->
+    <!--<p class="drsg_txt">&#45;&#45;</p>-->
+
+    <!--<p class="ptitle">户外概况</p>-->
+    <!--<p class="sport_txt">&#45;&#45;</p>-->
+
+    <!--<p class="ptitle">旅行概况</p>-->
+    <!--<p class="trav_txt">&#45;&#45;</p>-->
+
+    <!--<p class="ptitle">紫外线概况</p>-->
+    <!--<p class="uv_txt">&#45;&#45;</p>-->
+    <!--</div>-->
+    <!--<div id="panel"></div>-->
+
+    <!--临时切换城市按钮-->
+    <!--<div class="addCity">-->
+    <!--<a class="cityItem" href="javascript:void(0);">天津</a>-->
+    <!--<a class="cityItem" href="javascript:void(0);">阳原</a>-->
+    <!--<a class="cityItem" href="javascript:void(0);">佛山</a>-->
+    <!--<a class="cityAddBtn" href="javascript:void(0);" style="font-size: 24px; line-height: 42px">+</a>-->
+    <!--</div>-->
+
+    <!--新增城市编辑窗口-->
+    <div class="addNewCity">
+      <input type="text" placeholder="输入城市汉字">
+      <a href="javascript:void(0);">确定</a>
+    </div>
+
+
   </div>
-  <p class="updateLoc">----</p>
+  <!--下面列表-->
+  <div class="tq-list">
+    <!--<span class="active-point"></span>-->
 
-  <!--详细内容-->
-  <div id="login" class="detailContent">
-    <p class="ptitle">空气概况</p>
-    <p class="air_txt">--</p>
-
-    <p class="ptitle">舒适概况</p>
-    <p class="comf_txt">--</p>
-
-    <p class="ptitle">洗车概况</p>
-    <p class="cw_txt">--</p>
-
-    <p class="ptitle">穿衣概况</p>
-    <p class="drsg_txt">--</p>
-
-    <p class="ptitle">户外概况</p>
-    <p class="sport_txt">--</p>
-
-    <p class="ptitle">旅行概况</p>
-    <p class="trav_txt">--</p>
-
-    <p class="ptitle">紫外线概况</p>
-    <p class="uv_txt">--</p>
-  </div>
-  <div id="panel"></div>
-
-  <!--临时切换城市按钮-->
-  <div class="addCity">
-    <a class="cityItem" href="javascript:void(0);">天津</a>
-    <a class="cityItem" href="javascript:void(0);">阳原</a>
-    <a class="cityItem" href="javascript:void(0);">佛山</a>
-    <a class="cityAddBtn" href="javascript:void(0);" style="font-size: 24px; line-height: 42px">+</a>
-  </div>
-  <!--新增城市编辑窗口-->
-  <div class="addNewCity">
-    <input type="text" placeholder="输入城市汉字">
-    <a href="javascript:void(0);">确定</a>
-  </div>
-
-
-</div>
-<!--下面列表-->
-<div class="tq-list">
-  <span class="active-point"></span>
-
-  <div class="hourlyDiv">
-    <ul class="hourlyWeahter">
+    <!--<div class="hourlyDiv">-->
+    <!--<ul class="hourlyWeahter">-->
+    <!--</ul>-->
+    <!--</div>-->
+    <ul class="dailyWeather">
     </ul>
   </div>
-  <ul class="dailyWeather">
-  </ul>
 </div>
 
 
@@ -92,37 +110,42 @@
 
   ;(function () {
 
+    // city数组,和记录当前位置
+    var city = ['天津']
+    var cityIndex=0
+
     // 获得列表ul
     var $tq_list = $('.tq-list .dailyWeather')
-    var $tq_listHourly = $('.tq-list .hourlyWeahter')
+    // var $tq_listHourly = $('.tq-list .hourlyWeahter')
 
-    // 设置小蓝点定位--临时
-    // function setActivePoint() {
-    //
-    //   var $li = $('.tq-list .dailyWeather li').eq(0)
-    //   $('.active-point').css({
-    //     left: $li.offset().left - 20,
-    //     top: $li.offset().top - $li.offsetParent().offset().top + ($li.outerHeight() / 2) + 5
-    //   }).show(1000)
-    // }
 
     // 改天气背景
     function changeTpBannerBackgroud(info) {
-      
-      var backgroudInfo=''
-      
-      switch (info){
-        case '晴':backgroudInfo='weather_qing1.jpg';break;
-        case '多云':backgroudInfo='weather_duoyun1.jpg';break;
-        case '阴':backgroudInfo='weather_duoyun1.jpg';break;
-        case '阵雨':backgroudInfo='weather_yu1.jpg';break;
-        case '小雨':backgroudInfo='weather_yu1.jpg';break;
+
+      var backgroudInfo = ''
+
+      switch (info) {
+        case '晴':
+          backgroudInfo = 'white.png';
+          break;
+        case '多云':
+          backgroudInfo = 'green.png';
+          break;
+        case '阴':
+          backgroudInfo = 'green.png';
+          break;
+        case '阵雨':
+          backgroudInfo = 'green.png';
+          break;
+        case '小雨':
+          backgroudInfo = 'green.png';
+          break;
       }
-      
+
 
       $('.tq-banner').css({
 
-        backgroundImage: 'url("./assert/images/'+backgroudInfo+'")'
+        backgroundImage: 'url("./assert/images/' + backgroudInfo + '")'
       })
     }
 
@@ -133,9 +156,10 @@
 
       // 刷新前--清空，初始化
       //小时别
-      $tq_listHourly.css('display', 'none')
-      $tq_listHourly.empty()
+      // $tq_listHourly.css('display', 'none')
+      // $tq_listHourly.empty()
       // 日别
+
       $tq_list.css('display', 'none')
       $tq_list.empty()
 
@@ -144,9 +168,10 @@
       var weatherBanner = data['HeWeather5'][0]['now']
       //位置，实时天气，温度，空气质量，风
       $('.location').html(data['HeWeather5'][0]['basic']['city'])
-      $('.main').html(weatherBanner['cond']['txt'])
-      $('.temp').html(weatherBanner['tmp'] + '°')
-      $('.qlty').html('空气质量: ' + data['HeWeather5'][0]['aqi']['city']['qlty'])
+      $('.title-name').html(weatherBanner['cond']['txt'])
+      $('.title-temp').html(weatherBanner['tmp'] + '°')
+      $('.qlty').html(data['HeWeather5'][0]['aqi']['city']['qlty'])
+      $('.aqi').html('空气质量: ' + data['HeWeather5'][0]['aqi']['city']['aqi'])
       $('.updateLoc').html('更新于: ' + data['HeWeather5'][0]['basic']['update']['loc'])
       $('.wind').html(weatherBanner['wind']['dir'] + ' ' + weatherBanner['wind']['sc'] + '级')
 
@@ -155,20 +180,19 @@
       changeTpBannerBackgroud(weatherBanner['cond']['txt'])
 
 
-
       // 蒙版详细信息
-      var weatherDetail = data['HeWeather5'][0]['suggestion']
-      $('.air_txt').html(weatherDetail['air']['txt'])
-      $('.comf_txt').html(weatherDetail['comf']['txt'])
-      $('.cw_txt').html(weatherDetail['cw']['txt'])
-      $('.drsg_txt').html(weatherDetail['drsg']['txt'])
-      $('.sport_txt').html(weatherDetail['sport']['txt'])
-      $('.trav_txt').html(weatherDetail['trav']['txt'])
-      $('.uv_txt').html(weatherDetail['uv']['txt'])
+      // var weatherDetail = data['HeWeather5'][0]['suggestion']
+      // $('.air_txt').html(weatherDetail['air']['txt'])
+      // $('.comf_txt').html(weatherDetail['comf']['txt'])
+      // $('.cw_txt').html(weatherDetail['cw']['txt'])
+      // $('.drsg_txt').html(weatherDetail['drsg']['txt'])
+      // $('.sport_txt').html(weatherDetail['sport']['txt'])
+      // $('.trav_txt').html(weatherDetail['trav']['txt'])
+      // $('.uv_txt').html(weatherDetail['uv']['txt'])
 
       // 界面列表元素渲染
       var weatherList = data['HeWeather5'][0]['daily_forecast']
-      var weatherListHourly = data['HeWeather5'][0]['hourly_forecast']
+      // var weatherListHourly = data['HeWeather5'][0]['hourly_forecast']
 
       var days = ['今天', '明天', '后天']
       // 根据不同天气更换图标
@@ -221,58 +245,64 @@
 
       })
 
-      $tq_listHourly.slideDown(600)
+      // $tq_listHourly.slideDown(600)
       $tq_list.slideDown(600)
     }
 
 
-    function addNewCityBtn(cityName) {
-      $('.addCity').prepend('<a class="cityItem" href="javascript:void(0);">' + cityName + '</a>')
-    }
+    // function addNewCityBtn(cityName) {
+    //   $('.addCity').prepend('<a class="cityItem" href="javascript:void(0);">' + cityName + '</a>')
+    // }
 
 
     // 点击按钮新增城市
 
-    $('.cityAddBtn').click(function () {
+    $('.addNewCity-btn').click(function () {
 
-      var cityNum = $('.addCity>.cityItem').length
+      // var cityNum = $('.addCity>.cityItem').length
+      //
+      // if (cityNum > 3) {
+      //   alert('目前只能新增一个城市')
+      //   return
+      // }
+      $('.addNewCity').show(500)
+      $('.addNewCity>input').focus()
 
-      if (cityNum > 3) {
-        alert('目前只能新增一个城市')
-        return
+    })
+
+    // 新增城市窗口的点击事件
+    $('.addNewCity>a').click(function () {
+
+      var cityName = $('.addNewCity>input').val()
+
+      // var cityEle = $('<a class="cityItem" href="javascript:void(0);">' + cityName + '</a>')
+
+      if ((getWeatherData(cityName, 'check')) == '1') {
+        city.push(cityName)
       }
 
-
-      $('.addNewCity').show(500)
-
-      $('.addNewCity>a').click(function () {
-
-        var cityName = $('.addNewCity>input').val()
-
-        var cityEle = $('<a class="cityItem" href="javascript:void(0);">' + cityName + '</a>')
-
-        getWeatherData(cityEle, true)
-
-        $('.addNewCity').hide()
-
-      })
-
+      $('.addNewCity').hide()
 
     })
 
 
-    // 获取天气数据方法
-    function getWeatherData(ele, addFlag) {
+    /**
+     * 获取天气数据
+     * @param cityName 城市名称
+     * @param tag 方法类别 check：获取城市状态；gain：获取天气数据
+     */
 
-      var cityName = ele.html().trim()
+    function getWeatherData(cityName, tag) {
+
+
       // 如果点击的是当前地区，不执行
-      if (cityName === $('.location').html().trim()) {
-        console.log('当前城市')
-        return
-      }
+      // if (cityName === $('.location').html().trim()) {
+      //   console.log('当前城市')
+      //   return
+      // }
 
-      ele.parent().children().removeClass('active')
-      ele.addClass('active')
+      // ele.parent().children().removeClass('active')
+      // ele.addClass('active')
 
 
       var url = 'https://free-api.heweather.com/v5/weather?city=' + cityName + '&key=b7e13790348846feb206d08509a1d78b'
@@ -283,24 +313,42 @@
         data: {},
         success: function (data) {
 
-          // 看城市是否有效
-          var getCityStatus = data['HeWeather5'][0]['status']
-          
-          console.log(addFlag)
-          console.log(getCityStatus)
+          if (tag === 'check') {
+            console.log('check')
+            // 看城市是否有效
+            var getCityStatus = data['HeWeather5'][0]['status']
 
+            if (getCityStatus !== 'ok') {
 
-          if(addFlag){
-            if(getCityStatus == 'ok'){
-              addNewCityBtn(data['HeWeather5'][0]['basic']['city'])
-            }else {
-              alert('该城市输入错误或未收录')
+              alert('城市名称错误或未收录')
+
+              return -1
+
+            } else {
+              city.push(cityName)
+
+              // 把标志位移到最后
+              cityIndex=city.length-1
+              getWeatherData(cityName, 'gain')
+              return 1
             }
+            
+          } else if (tag === 'gain') {
+            console.log('gain')
+            setWeatherList(data)
           }
 
-          setWeatherList(data)
-            // setActivePoint()
-          
+          // if (addFlag) {
+          //   if (getCityStatus == 'ok') {
+          //     addNewCityBtn(data['HeWeather5'][0]['basic']['city'])
+          //   } else {
+          //     alert('该城市输入错误或未收录')
+          //   }
+          // }
+
+          // setWeatherList(data)
+          // setActivePoint()
+
 
         },
         error: function () {
@@ -310,53 +358,80 @@
     }
 
     // 默认加载第一项地区
-    getWeatherData($('.addCity>.cityItem').eq(0), false)
+    getWeatherData(city[cityIndex], 'gain')
 
     // 切换按钮加载
-    $('.addCity').delegate('.cityItem', 'click', function () {
+    $('.arrow-left').click(function () {
 
-      getWeatherData($(this), false)
+
+
+      if(cityIndex==0){
+        alert('FirstOne')
+        return
+      }
+
+      cityIndex--
+
+      getWeatherData(city[cityIndex], 'gain')
     })
 
-  }())
+    $('.arrow-right').click(function () {
 
+
+      if(cityIndex==(city.length-1)){
+        alert('LastOne')
+        return
+      }
+      cityIndex++
+
+      getWeatherData(city[cityIndex], 'gain')
+    })
+
+
+
+    // $('.addCity').delegate('.cityItem', 'click', function () {
+    //
+    //   getWeatherData($(this), false)
+    // })
+
+  }())
 
 
   // 蒙版
-  ;(function () {
-
-
-    $('#doit').click(function (e) {
-
-      //阻止冒泡
-      e.stopPropagation()
-
-      // 显示面板和蒙版
-      $('#panel').show()
-      // $('#login').show()
-      $('#login').addClass('active')
-
-
-      // 隐藏滚动条
-      $('body').css('overflow', 'hidden')
-
-    })
-
-    //  点击其他部分，隐藏
-    $(document).click(function (e) {
-      // 判断点击事件源来做不同操作，只要点击不是login的，就隐藏
-      // console.log(e.target.id)
-
-      if (e.target.id !== 'login') {
-        $('#panel').hide()
-        // $('#login').hide()
-        $('#login').removeClass('active')
-        $('body').css('overflow', 'visible')
-
-      }
-    })
-
-  }())
+  // ;(function () {
+  //
+  //
+  //   $('#doit').click(function (e) {
+  //
+  //     //阻止冒泡
+  //     e.stopPropagation()
+  //
+  //     // 显示面板和蒙版
+  //     $('#panel').show()
+  //     // $('#login').show()
+  //     $('#login').addClass('active')
+  //
+  //
+  //     // 隐藏滚动条
+  //     $('body').css('overflow', 'hidden')
+  //
+  //   })
+  //
+  //   //  点击其他部分，隐藏
+  //   $(document).click(function (e) {
+  //     // 判断点击事件源来做不同操作，只要点击不是login的，就隐藏
+  //     // console.log(e.target.id)
+  //
+  //     if (e.target.id !== 'login') {
+  //       $('#panel').hide()
+  //       // $('#login').hide()
+  //       $('#login').removeClass('active')
+  //       $('body').css('overflow', 'visible')
+  //
+  //     }
+  //   })
+  //
+  // }())
 
 
 </script>

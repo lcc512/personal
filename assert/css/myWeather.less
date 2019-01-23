@@ -1,4 +1,4 @@
-@mainColor: #5197e1;
+@mainColor: #FD9438;
 
 //清空默认样式
 /* 清除内外边距 */
@@ -9,33 +9,112 @@ fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
 th, td { /* table elements 表格元素 */
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
 }
 
 
 
 
 body {
-  font-family: "Microsoft YaHei UI", sans-serif;
+  font-family: "Microsoft YaHei UI Light", sans-serif;
   width: 100%;
   height: 100%;
+}
+
+.main{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 
 //上面内容
 .tq-banner {
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
-  height: 300px;
-  background: url("../images/weather_qing1.jpg") no-repeat center;
+  height: 75%;
+  background: url("../images/orange.png") no-repeat;
   background-size: cover;
-  color: #fff;
+
+  color: #ffffff;
   text-align: center;
-  padding-top: 80px;
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0px 2px 3px 1px #ccc;
 
   //天气背景切换缓动
   transition: 1s all;
+
+  .location-main{
+
+    padding-top: 10px;
+
+    .location{
+      display: inline-block;
+      height: 30px;
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    .addNewCity-btn{
+      display: inline-block;
+      color: #ffffff;
+      width: 30px;
+      height: 30px;
+      border: 1px solid #ffffff;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      vertical-align: middle;
+      line-height: 28px;
+    }
+  }
+
+
+  .arrow-btn{
+    a{
+      color: #ffffff;
+      //font-size: 26px;
+    }
+    .arrow-left{
+      position: absolute;
+      left: 0;
+      top: 50%;
+      //display: none;
+    }
+    .arrow-right{
+      position: absolute;
+      right: 0;
+      top: 50%;
+    }
+  }
+
+
+  .title{
+    padding-top: 20%;
+    span{
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      padding: 0 5px;
+      font-size: 60px;
+      line-height: 100px;
+      &:nth-child(1){
+        border-right: 2px solid #ffffff;
+      }
+    }
+    .title-name{
+
+    }
+  }
+
 
   //更新信息
   .updateLoc{
@@ -71,18 +150,6 @@ body {
       }
   }
 
-  .main {
-    font-size: 32px;
-  }
-
-  .location {
-
-  }
-  .temp {
-    text-indent: 5px;
-    font-size: 56px;
-  }
-
   //地区按钮
   .addCity {
     position: absolute;
@@ -115,8 +182,8 @@ body {
     width: 230px;
     //height: 100px;
     background-color: #f9f9f9;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+    opacity: 0.8;
+    //border: 1px solid #ccc;
     overflow: auto;
 
     /*以下让元素上下左右居中*/
@@ -126,27 +193,25 @@ body {
     transform: translateX(-50%) translateY(-50%);
     display: none;
     z-index: 999;
-    padding: 20px;
+    padding: 10px;
 
     display: none;
 
     a {
-      display: block;
+      display: inline-block;
       text-decoration: none;
-      width: 44px;
-      height: 44px;
-      border-radius: 100%;
-      border: 1px solid #ccc;
+      border-bottom: 1px solid @mainColor;
       margin: 0 auto;
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       color: #333333;
-      line-height: 44px;
+      line-height: 36px;
       transition: 0.3s all;
     }
     input{
       width: 100%;
       height: 36px;
       margin-bottom: 10px;
+      text-indent: 5px;
     }
 
   }
@@ -154,96 +219,104 @@ body {
 
 //下面列表内容
 .tq-list {
-  padding: 20px;
-  position: relative;
 
-  //临时激活点
-  .active-point {
-    display: none;
-    width: 10px;
-    height: 10px;
-    background-color: @mainColor;
-    border-radius: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
+  width: 100%;
+  height: 25%;
+  color: #555555;
 
-    transition: 0.5s all;
-
-  }
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  //background-color: yellow;
 
   //小时别天气
-  .hourlyDiv {
+  //.hourlyDiv {
+  //  width: 100%;
+  //  overflow: auto;
+  //
+  //  .hourlyWeahter {
+  //    position: relative;
+  //    margin: 0;
+  //    padding: 0;
+  //    list-style: none;
+  //    display: none;
+  //    width: 700px;
+  //    li {
+  //      float: left;
+  //      width: 80px;
+  //      font-size: 16px;
+  //
+  //      .list-week {
+  //        width: 100%;
+  //        float: left;
+  //        margin: 0 auto;
+  //      }
+  //      .list-temp {
+  //        width: 100%;
+  //        float: right;
+  //      }
+  //
+  //      span {
+  //        text-align: center;
+  //        display: block;
+  //        padding: 3px 0;
+  //
+  //        &.iconfont {
+  //          font-size: 20px;
+  //          font-weight: bolder;
+  //          color: @mainColor;
+  //        }
+  //      }
+  //
+  //      transition: 0.5s all;
+  //
+  //    }
+  //  }
+  //}
+
+  //日别天气
+  .dailyWeather {
     width: 100%;
-    overflow: auto;
+    height: 100%;
+    list-style: none;
+    display: none;
 
-    .hourlyWeahter {
-      position: relative;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: none;
-      width: 700px;
-      li {
-        float: left;
-        width: 80px;
-        font-size: 16px;
+    li {
+      width: 100%;
+      height: 33%;
+      font-size: 16px;
+      padding: 20px 0 0;
 
-        .list-week {
-          width: 100%;
+
+      div{
+
+        line-height: 100%;
+
+        &.list-week {
           float: left;
-          margin: 0 auto;
+          width: 30%;
+          //background-color: yellow;
+          text-align: center;
         }
-        .list-temp {
-          width: 100%;
+        &.list-temp {
           float: right;
+          text-align: center;
+          width: 50%;
+          //background-color: #2aabd2;
         }
 
         span {
-          text-align: center;
-          display: block;
-          padding: 3px 0;
-
           &.iconfont {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: bolder;
             color: @mainColor;
           }
         }
-
-        transition: 0.5s all;
-
-      }
-    }
-  }
-  //日别天气
-  .dailyWeather {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: none;
-    li {
-      padding: 25px 0;
-
-      font-size: 16px;
-
-      .list-week {
-        float: left;
-      }
-      .list-temp {
-        float: right;
       }
 
-      span {
-        text-align: left;
-        display: inline-block;
-        padding-left: 10px;
-        &.iconfont {
-          font-size: 20px;
-          font-weight: bolder;
-          color: @mainColor;
-        }
-      }
+
+
+
 
       transition: 0.5s all;
 
@@ -253,57 +326,57 @@ body {
 
 
 //以下是详细信息蒙版效果
-#panel {
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  opacity: 0.5;
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  display: none;
-}
-
-#login {
-  width: 20px;
-  height: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  overflow: auto;
-
-  /*以下让元素上下左右居中*/
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  //display: none;
-  padding: 20px;
-
-  opacity: 0;
-  transition: width 0.5s,height 0.5s 0.5s;
-
-
-  &.active{
-    width: 300px;
-    height: 500px;
-    z-index: 999;
-    opacity: 1;
-  }
-
-
-  p{
-    color: #333333;
-    text-align: left;
-    font-size: 12px;
-
-  }
-  .ptitle{
-    font-size: 14px;
-    margin: 10px 0;
-    color: orangered;
-    border-bottom: 1px solid orangered;
-  }
-}
+//#panel {
+//  width: 100%;
+//  height: 100%;
+//  background-color: #000;
+//  opacity: 0.5;
+//  position: fixed;
+//  left: 0;
+//  top: 0;
+//  right: 0;
+//  bottom: 0;
+//  display: none;
+//}
+//
+//#login {
+//  width: 20px;
+//  height: 20px;
+//  background-color: #f9f9f9;
+//  border-radius: 10px;
+//  border: 1px solid #ccc;
+//  overflow: auto;
+//
+//  /*以下让元素上下左右居中*/
+//  position: fixed;
+//  left: 50%;
+//  top: 50%;
+//  transform: translateX(-50%) translateY(-50%);
+//  //display: none;
+//  padding: 20px;
+//
+//  opacity: 0;
+//  transition: width 0.5s,height 0.5s 0.5s;
+//
+//
+//  &.active{
+//    width: 300px;
+//    height: 500px;
+//    z-index: 999;
+//    opacity: 1;
+//  }
+//
+//
+//  p{
+//    color: #333333;
+//    text-align: left;
+//    font-size: 12px;
+//
+//  }
+//  .ptitle{
+//    font-size: 14px;
+//    margin: 10px 0;
+//    color: orangered;
+//    border-bottom: 1px solid orangered;
+//  }
+//}

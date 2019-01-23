@@ -26,24 +26,84 @@ td {
   /* table elements 表格元素 */
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
 }
 body {
-  font-family: "Microsoft YaHei UI", sans-serif;
+  font-family: "Microsoft YaHei UI Light", sans-serif;
   width: 100%;
   height: 100%;
 }
+.main {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
 .tq-banner {
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
-  height: 300px;
-  background: url("../images/weather_qing1.jpg") no-repeat center;
+  height: 75%;
+  background: url("../images/orange.png") no-repeat;
   background-size: cover;
-  color: #fff;
+  color: #ffffff;
   text-align: center;
-  padding-top: 80px;
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0px 2px 3px 1px #ccc;
   transition: 1s all;
+}
+.tq-banner .location-main {
+  padding-top: 10px;
+}
+.tq-banner .location-main .location {
+  display: inline-block;
+  height: 30px;
+  font-size: 24px;
+  line-height: 30px;
+}
+.tq-banner .location-main .addNewCity-btn {
+  display: inline-block;
+  color: #ffffff;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ffffff;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  vertical-align: middle;
+  line-height: 28px;
+}
+.tq-banner .arrow-btn a {
+  color: #ffffff;
+}
+.tq-banner .arrow-btn .arrow-left {
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+.tq-banner .arrow-btn .arrow-right {
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+.tq-banner .title {
+  padding-top: 20%;
+}
+.tq-banner .title span {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  padding: 0 5px;
+  font-size: 60px;
+  line-height: 100px;
+}
+.tq-banner .title span:nth-child(1) {
+  border-right: 2px solid #ffffff;
 }
 .tq-banner .updateLoc {
   position: absolute;
@@ -71,14 +131,7 @@ body {
 }
 .tq-banner .detailBtn a.active {
   background-color: #fff;
-  color: #5197e1;
-}
-.tq-banner .main {
-  font-size: 32px;
-}
-.tq-banner .temp {
-  text-indent: 5px;
-  font-size: 56px;
+  color: #FD9438;
 }
 .tq-banner .addCity {
   position: absolute;
@@ -101,13 +154,12 @@ body {
 }
 .tq-banner .addCity a.active {
   background-color: #fff;
-  color: #5197e1;
+  color: #FD9438;
 }
 .tq-banner .addNewCity {
   width: 230px;
   background-color: #f9f9f9;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+  opacity: 0.8;
   overflow: auto;
   /*以下让元素上下左右居中*/
   position: fixed;
@@ -115,149 +167,62 @@ body {
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   z-index: 999;
-  padding: 20px;
+  padding: 10px;
   display: none;
 }
 .tq-banner .addNewCity a {
-  display: block;
+  display: inline-block;
   text-decoration: none;
-  width: 44px;
-  height: 44px;
-  border-radius: 100%;
-  border: 1px solid #ccc;
+  border-bottom: 1px solid #FD9438;
   margin: 0 auto;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   color: #333333;
-  line-height: 44px;
+  line-height: 36px;
   transition: 0.3s all;
 }
 .tq-banner .addNewCity input {
   width: 100%;
   height: 36px;
   margin-bottom: 10px;
+  text-indent: 5px;
 }
 .tq-list {
-  padding: 20px;
-  position: relative;
-}
-.tq-list .active-point {
-  display: none;
-  width: 10px;
-  height: 10px;
-  background-color: #5197e1;
-  border-radius: 100%;
+  width: 100%;
+  height: 25%;
+  color: #555555;
   position: absolute;
   left: 0;
-  top: 0;
-  transition: 0.5s all;
-}
-.tq-list .hourlyDiv {
-  width: 100%;
-  overflow: auto;
-}
-.tq-list .hourlyDiv .hourlyWeahter {
-  position: relative;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: none;
-  width: 700px;
-}
-.tq-list .hourlyDiv .hourlyWeahter li {
-  float: left;
-  width: 80px;
-  font-size: 16px;
-  transition: 0.5s all;
-}
-.tq-list .hourlyDiv .hourlyWeahter li .list-week {
-  width: 100%;
-  float: left;
-  margin: 0 auto;
-}
-.tq-list .hourlyDiv .hourlyWeahter li .list-temp {
-  width: 100%;
-  float: right;
-}
-.tq-list .hourlyDiv .hourlyWeahter li span {
-  text-align: center;
-  display: block;
-  padding: 3px 0;
-}
-.tq-list .hourlyDiv .hourlyWeahter li span.iconfont {
-  font-size: 20px;
-  font-weight: bolder;
-  color: #5197e1;
+  bottom: 0;
 }
 .tq-list .dailyWeather {
-  margin: 0;
-  padding: 0;
+  width: 100%;
+  height: 100%;
   list-style: none;
   display: none;
 }
 .tq-list .dailyWeather li {
-  padding: 25px 0;
+  width: 100%;
+  height: 33%;
   font-size: 16px;
+  padding: 20px 0 0;
   transition: 0.5s all;
 }
-.tq-list .dailyWeather li .list-week {
+.tq-list .dailyWeather li div {
+  line-height: 100%;
+}
+.tq-list .dailyWeather li div.list-week {
   float: left;
+  width: 30%;
+  text-align: center;
 }
-.tq-list .dailyWeather li .list-temp {
+.tq-list .dailyWeather li div.list-temp {
   float: right;
+  text-align: center;
+  width: 50%;
 }
-.tq-list .dailyWeather li span {
-  text-align: left;
-  display: inline-block;
-  padding-left: 10px;
-}
-.tq-list .dailyWeather li span.iconfont {
-  font-size: 20px;
+.tq-list .dailyWeather li div span.iconfont {
+  font-size: 16px;
   font-weight: bolder;
-  color: #5197e1;
-}
-#panel {
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  opacity: 0.5;
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  display: none;
-}
-#login {
-  width: 20px;
-  height: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  overflow: auto;
-  /*以下让元素上下左右居中*/
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  padding: 20px;
-  opacity: 0;
-  transition: width 0.5s,height 0.5s 0.5s;
-}
-#login.active {
-  width: 300px;
-  height: 500px;
-  z-index: 999;
-  opacity: 1;
-}
-#login p {
-  color: #333333;
-  text-align: left;
-  font-size: 12px;
-}
-#login .ptitle {
-  font-size: 14px;
-  margin: 10px 0;
-  color: orangered;
-  border-bottom: 1px solid orangered;
+  color: #FD9438;
 }
 /*# sourceMappingURL=myWeather.css.map */
