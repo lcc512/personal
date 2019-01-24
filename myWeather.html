@@ -6,7 +6,7 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="keywords" content="天气预报，个人练习，和风平台数据">
-  <link rel="stylesheet" href="assert/css/myWeather.css?version=0.0.7">
+  <link rel="stylesheet" href="assert/css/myWeather.css?version=0.0.8">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_832418_iig9uckp5ta.css">
   <title>测试</title>
   <noscript>
@@ -27,7 +27,7 @@
 
     <div class="title">
       <span class="title-name">☀</span>
-      <span class="title-temp">25°</span>
+      <span class="title-temp">25°C</span>
     </div>
     <div class="location-main">
       <p class="location">地区</p>
@@ -169,7 +169,7 @@
       //位置，实时天气，温度，空气质量，风
       $('.location').html(data['HeWeather5'][0]['basic']['city'])
       $('.title-name').html(weatherBanner['cond']['txt'])
-      $('.title-temp').html(weatherBanner['tmp'] + '°')
+      $('.title-temp').html(weatherBanner['tmp'] + '°C')
       $('.qlty').html(data['HeWeather5'][0]['aqi']['city']['qlty'])
       $('.aqi').html('空气质量: ' + data['HeWeather5'][0]['aqi']['city']['aqi'])
       $('.updateLoc').html('更新于: ' + data['HeWeather5'][0]['basic']['update']['loc'])
